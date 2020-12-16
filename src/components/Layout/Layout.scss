@@ -1,0 +1,17 @@
+.rezoom__container {
+  display: flex;
+  flex-direction: row;
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+
+  header {
+  }
+
+  .rezoom__contents {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+}

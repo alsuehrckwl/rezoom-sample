@@ -1,0 +1,80 @@
+.resumes__contents--list {
+    > div {
+      > a {
+        > div {
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+  
+  .resumes__contents--box {
+    padding: 61px 50px 0px 50px;
+  }
+  
+  .card {
+    height: 221px;
+    background-color: #ffffff;
+    border-radius: 0px;
+    box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.02) !important;
+    
+    &:hover {
+      box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.1) !important;
+    }
+  }
+  
+  .list__header {
+    font-size: 22px;
+    font-weight: normal;
+    margin-bottom: 5px;
+    letter-spacing: -1px;
+    font-stretch: normal;
+    line-height: normal;
+    margin-top: 32px;
+    margin-left: 32px;
+  
+    p {
+      margin: 0px;
+    }
+  }
+
+  .list__bottom {
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 1px;
+    font-stretch: normal;
+    line-height: normal;
+    margin-top: 5px;
+    margin-left: 32px;
+    color: #333333;
+  
+    p {
+      margin: 0px;
+    }
+  }
+
+  .list__question {
+    font-size: 16px;
+    font-weight: normal;
+    margin-bottom: 20px;
+    font-stretch: normal;
+    line-height: normal;
+    margin-top: 18px;
+    margin-left: 32px;
+    color: #222222;
+  
+    p {
+      margin: 0px;
+    }
+  }
+
+  .list__hashtag {
+    margin-top: 20px;
+    margin-left: 32px;
+
+    p {
+      margin: 0px;
+    }
+  }
+  
+  

@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  background: #f8f9fa;
+  font-family: 'Noto Sans, Roboto, Helvetica, Arial, sans-serif';
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+p {
+  margin: 0px;
+}

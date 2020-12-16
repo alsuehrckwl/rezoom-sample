@@ -1,0 +1,32 @@
+.resumes {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+
+  .resumes__contents {
+    flex: 1;
+    height: 100%;
+    // border: 1px solid blue;
+    // padding: 61px 50px 0px 50px;
+
+    .resumes__contents--header {
+      display: flex;
+      justify-content: space-between;
+      height: 32px;
+      margin-bottom: 16px;
+
+      .title {
+        font-size: 14px;
+      }
+      .action {
+        display: flex;
+        p {
+          font-size: 10px;
+          &:first-child {
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+  }
+}

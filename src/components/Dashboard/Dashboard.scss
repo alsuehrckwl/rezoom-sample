@@ -1,0 +1,131 @@
+.dashboard {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+
+  .dashboard__contents {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 864px;
+    
+    .dashboard__contents--chart {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 46px;
+
+      > p {
+        font-size: 15px;
+        font-weight: bold;
+        letter-spacing: -0.7px;
+        color: #222222;
+        margin-bottom: 10px;
+      }
+      .card__chart {
+        display: flex;
+        flex-direction: row;
+        height: 326px;
+        min-width: 910px;
+        padding: 50px;
+        border-radius: 6px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.02);
+
+       
+      }
+    }
+    
+    .dashboard__contents--bottom {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      min-width: 910px;
+      height: calc(100% - 300px);
+
+      .recent__document {
+        width: 100%;
+        margin-right: 31px;
+        
+        > p {
+          font-size: 15px;
+          font-weight: bold;
+          letter-spacing: -0.7px;
+          color: #222222;
+          margin-bottom: 10px;
+        }
+
+        .card__document {
+          width: 100%;
+          height: calc(100% - 40px);
+          border-radius: 6px;
+          background-color: #ffffff;
+          box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.02);
+        }
+      }
+
+      .recent__hashtag {
+        width: 100%;
+
+        > p {
+          font-size: 15px;
+          font-weight: bold;
+          letter-spacing: -0.7px;
+          color: #222222;
+          margin-bottom: 10px;
+        }
+
+        .card__hashtag {
+          width: 100%;
+          height: calc(100% - 40px);
+          border-radius: 6px;
+          background-color: #ffffff;
+          box-shadow: 0 4px 9px 0 rgba(0, 0, 0, 0.02);
+        }
+      }
+    }
+  }
+  .dashboard__drawer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    max-width: 326px;
+    height: 100%;
+    width: 326px;
+    background-color: #ffffff;
+    padding: 36px;
+
+    .flex-row {
+      .padding {
+        .footer {
+          min-width: 0px !important;
+
+          .day-headers {
+            font-size: 12px !important;
+          }
+          .day {
+            font-size: 12px !important;
+            padding: 4px !important;
+          }
+        }
+      }
+    }
+
+    .dashboard__drawer--title {
+      font-size: 15px;
+      font-weight: bold;
+      font-style: normal;
+      font-stretch: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      color: #1f1f1f;
+      margin-bottom: 32px;
+
+    }
+  }
+}
+
+.scroll__content {
+  > div {
+    padding: 40px 50px;
+  } 
+}
