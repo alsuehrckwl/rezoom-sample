@@ -5,7 +5,7 @@ export const INACTIVE_LOADING_COMPONENT = 'INACTIVE_LOADING_COMPONENT';
 
 const initialState = {
   container: true,
-  component: false,
+  component: false
 };
 
 export default function reducer(state = initialState, action = {}) {
@@ -13,22 +13,22 @@ export default function reducer(state = initialState, action = {}) {
     case ACTIVE_LOADING_CONTAINER:
       return {
         ...state,
-        container: true,
+        container: true
       };
     case INACTIVE_LOADING_CONTAINER:
       return {
         ...state,
-        container: false,
+        container: false
       };
     case ACTIVE_LOADING_COMPONENT:
       return {
         ...state,
-        component: true,
+        component: true
       };
     case INACTIVE_LOADING_COMPONENT:
       return {
         ...state,
-        component: false,
+        component: false
       };
     default:
       return state;
@@ -36,17 +36,17 @@ export default function reducer(state = initialState, action = {}) {
 }
 
 export const activeLoadingContainer = () => ({
-  type: ACTIVE_LOADING_CONTAINER,
+  type: ACTIVE_LOADING_CONTAINER
 });
 
 export const inactiveLoadingContainer = () => ({
-  type: INACTIVE_LOADING_CONTAINER,
+  type: INACTIVE_LOADING_CONTAINER
 });
 
 export const activeLoadingComponent = () => ({
-  type: ACTIVE_LOADING_COMPONENT,
+  type: ACTIVE_LOADING_COMPONENT
 });
 
 export const inactiveLoadingComponent = () => ({
-  type: INACTIVE_LOADING_COMPONENT,
+  type: INACTIVE_LOADING_COMPONENT
 });

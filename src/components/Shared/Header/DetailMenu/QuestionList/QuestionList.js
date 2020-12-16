@@ -61,7 +61,7 @@ QuestionList.propTypes = {
   selectedQuestion: PropTypes.object,
   list: PropTypes.array,
   isDeleteMode: PropTypes.bool,
-  deleteQuestionId: PropTypes.func,
+  deleteQuestionId: PropTypes.func
 };
 
 export default QuestionList;

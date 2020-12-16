@@ -5,8 +5,8 @@ const initialState = {
   open: false,
   data: {
     variant: 'success',
-    message: '',
-  },
+    message: ''
+  }
 };
 
 export default function reducer(state = initialState, action = {}) {
@@ -17,8 +17,8 @@ export default function reducer(state = initialState, action = {}) {
         open: true,
         data: {
           variant: action.payload.data.variant,
-          message: action.payload.data.message,
-        },
+          message: action.payload.data.message
+        }
       };
     case CLOSE_SNACKBAR:
       return {
@@ -26,8 +26,8 @@ export default function reducer(state = initialState, action = {}) {
         open: false,
         data: {
           variant: 'success',
-          message: '',
-        },
+          message: ''
+        }
       };
     default:
       return state;
@@ -36,9 +36,9 @@ export default function reducer(state = initialState, action = {}) {
 
 export const openSnackbar = data => ({
   type: OPEN_SNACKBAR,
-  payload: { data },
+  payload: { data }
 });
 
 export const closeSnackbar = () => ({
-  type: CLOSE_SNACKBAR,
+  type: CLOSE_SNACKBAR
 });

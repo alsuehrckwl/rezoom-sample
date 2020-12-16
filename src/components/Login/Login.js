@@ -11,7 +11,7 @@ import {
   Button,
   withStyles,
   AppBar,
-  Toolbar,
+  Toolbar
 } from '@material-ui/core';
 import { login } from '../../store/Auth/Auth.store';
 import scss from './Login.scss';
@@ -23,23 +23,23 @@ const theme = createMuiTheme({
   overrides: {
     MuiPaper: {
       elevation4: {
-        boxShadow: 'none',
-      },
+        boxShadow: 'none'
+      }
     },
     MuiCardContent: {
       root: {
-        padding: '0px !important',
-      },
+        padding: '0px !important'
+      }
     },
     MuiCardActions: {
       root: {
         margin: '22px 32px',
         padding: '0px !important',
-        height: '72px',
+        height: '72px'
       },
       action: {
-        margin: '0px',
-      },
+        margin: '0px'
+      }
     },
     MuiButton: {
       root: {
@@ -50,28 +50,28 @@ const theme = createMuiTheme({
         borderRadius: 28,
         fontSize: '14px !important',
         fontWeight: 'bold',
-        boxShadow: '0 2px 6px 0 rgba(159, 159, 159, 0.5)',
-      },
-    },
-  },
+        boxShadow: '0 2px 6px 0 rgba(159, 159, 159, 0.5)'
+      }
+    }
+  }
 });
 
 const styles = {
   card: {
     width: 450,
     boxShadow: '0 4px 9px 0 rgba(0, 0, 0, 0.02)',
-    borderRadius: 0,
+    borderRadius: 0
   },
   title: {
     margin: 32,
     fontSize: 24,
-    color: '#222222',
+    color: '#222222'
   },
   account: {
     fontSize: 14,
     textAlign: 'center',
     margin: '14px 32px',
-    fontWeight: 'normal',
+    fontWeight: 'normal'
   },
   input: {
     width: 386,
@@ -82,8 +82,8 @@ const styles = {
     color: '#222222',
     fontSize: 14,
     border: 0,
-    letterSpacing: -0.7,
-  },
+    letterSpacing: -0.7
+  }
 };
 
 @withStyles(styles)
@@ -92,22 +92,22 @@ const styles = {
   enableReinitialize: true,
   initialValues: {
     username: '',
-    password: '',
+    password: ''
   },
   onSubmit: (values, dispatch) => {
     dispatch(login(values));
-  },
+  }
 })
 @connect(
   state => ({
     isLogin: state.auth.isLogin,
     loginError: state.auth.loginError,
-    formValues: getFormValues('loginForm')(state),
+    formValues: getFormValues('loginForm')(state)
   }),
   {
     login,
-    submit: () => submit('loginForm'),
-  },
+    submit: () => submit('loginForm')
+  }
 )
 class Login extends Component {
   constructor(props) {
@@ -116,7 +116,7 @@ class Login extends Component {
     this.state = {
       usernameRequired: [false, '이메일을 입력하세요.'],
       passwordRequired: [false, '패스워드를 입력하세요.'],
-      loginErrorThrow: [false, ''],
+      loginErrorThrow: [false, '']
     };
   }
 
@@ -125,7 +125,7 @@ class Login extends Component {
 
     if (loginError[0] !== nextProps.loginError[0]) {
       this.setState({
-        loginErrorThrow: nextProps.loginError,
+        loginErrorThrow: nextProps.loginError
       });
     }
   }
@@ -177,7 +177,7 @@ class Login extends Component {
 
     this.setState({
       usernameRequired: [checkBool, checkEmail],
-      passwordRequired: [passwordRequired, '패스워드를 입력하세요.'],
+      passwordRequired: [passwordRequired, '패스워드를 입력하세요.']
     });
 
     return result;
@@ -197,11 +197,11 @@ class Login extends Component {
         checkBool = true;
       }
       this.setState({
-        usernameRequired: [checkBool === 0, checkEmail],
+        usernameRequired: [checkBool === 0, checkEmail]
       });
     } else {
       this.setState({
-        usernameRequired: [value.length === 0, '이메일을 입력하세요.'],
+        usernameRequired: [value.length === 0, '이메일을 입력하세요.']
       });
     }
   }
@@ -212,7 +212,7 @@ class Login extends Component {
 
     this.setState({
       passwordRequired: [value.length === 0, '패스워드를 입력하세요.'],
-      password: value,
+      password: value
     });
   }
 
@@ -239,7 +239,7 @@ class Login extends Component {
                 <div>
                   <Field
                     style={{
-                      border: usernameRequired[0] ? 'solid 1px #f1552f' : 0,
+                      border: usernameRequired[0] ? 'solid 1px #f1552f' : 0
                     }}
                     className={classes.input}
                     name="username"
@@ -255,7 +255,7 @@ class Login extends Component {
                 <div>
                   <Field
                     style={{
-                      border: passwordRequired[0] ? 'solid 1px #f1552f' : 0,
+                      border: passwordRequired[0] ? 'solid 1px #f1552f' : 0
                     }}
                     className={classes.input}
                     name="password"
@@ -275,7 +275,7 @@ class Login extends Component {
                 <span
                   style={{
                     color: '#364eda',
-                    fontWeight: 'bold',
+                    fontWeight: 'bold'
                   }}
                 >
                   <Link to="/account"> 회원 가입 </Link>
@@ -309,7 +309,7 @@ Login.propTypes = {
   isLogin: PropTypes.bool,
   submit: PropTypes.func,
   formValues: PropTypes.object,
-  loginError: PropTypes.array,
+  loginError: PropTypes.array
 };
 
 export default Login;

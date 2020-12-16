@@ -12,7 +12,7 @@ import {
   selectedCreateCacheQuestion,
   deleteQuestion,
   deleteQuestionCache,
-  isUpdateModeChange,
+  isUpdateModeChange
 } from '../../../../store/Resume/Resume.store';
 import scss from './DetailMenu.scss';
 import { QuestionList } from './QuestionList/QuestionList';
@@ -26,7 +26,7 @@ import cancelIcon from '../../../../static/images/item/ic-cancel.svg';
     createCacheQuestions: state.resume.createResumeCache.detail,
     createCacheThisId: state.resume.createResumeCache.thisId,
     createCacheMode: state.resume.createResumeCache.mode,
-    selectedQuestionId: state.resume.selectedQuestion,
+    selectedQuestionId: state.resume.selectedQuestion
   }),
   {
     selectedQuestion,
@@ -37,8 +37,8 @@ import cancelIcon from '../../../../static/images/item/ic-cancel.svg';
     selectedCreateCacheQuestion,
     deleteQuestion,
     deleteQuestionCache,
-    isUpdateModeChange,
-  },
+    isUpdateModeChange
+  }
 )
 export class DetailMenu extends Component {
   constructor(props) {
@@ -48,10 +48,10 @@ export class DetailMenu extends Component {
       list: [],
       selectedQuestion: {
         key: 1,
-        org: 1,
+        org: 1
       },
       init: true,
-      isDeleteMode: false,
+      isDeleteMode: false
     };
   }
 
@@ -76,7 +76,7 @@ export class DetailMenu extends Component {
       createCacheQuestions,
       createCacheThisId,
       createCacheMode,
-      selectedQuestionId,
+      selectedQuestionId
     } = this.props;
     let orgData, nextData;
 
@@ -88,8 +88,8 @@ export class DetailMenu extends Component {
           this.setState({
             selectedQuestion: {
               key: nextProps.createCacheThisId,
-              org: nextProps.createCacheThisId,
-            },
+              org: nextProps.createCacheThisId
+            }
           });
         }
       }
@@ -100,8 +100,8 @@ export class DetailMenu extends Component {
         this.setState({
           selectedQuestion: {
             key: nextProps.selectedQuestionId,
-            org: nextProps.selectedQuestionId,
-          },
+            org: nextProps.selectedQuestionId
+          }
         });
       }
     }
@@ -110,11 +110,11 @@ export class DetailMenu extends Component {
       let list = [];
       nextData.forEach(item => {
         list.push({
-          questionId: item.questionId,
+          questionId: item.questionId
         });
       });
       this.setState({
-        list: list,
+        list: list
       });
     }
 
@@ -123,8 +123,8 @@ export class DetailMenu extends Component {
         this.setState({
           selectedQuestion: {
             key: 1,
-            org: 1,
-          },
+            org: 1
+          }
         });
 
         mode === 'create'
@@ -134,21 +134,21 @@ export class DetailMenu extends Component {
         this.setState({
           selectedQuestion: {
             key: 1,
-            org: nextData[0].questionId,
-          },
+            org: nextData[0].questionId
+          }
         });
 
         mode === 'create'
           ? this.props.selectedCreateCacheQuestion(
               nextData[0].questionId,
-              'add',
+              'add'
             )
           : this.props.selectedQuestion(
-              nextProps.originQuestions[0].questionId,
+              nextProps.originQuestions[0].questionId
             );
       }
       this.setState({
-        init: false,
+        init: false
       });
     }
   }
@@ -161,7 +161,7 @@ export class DetailMenu extends Component {
       selectedCreateCacheQuestion(
         this.state.selectedQuestion.org,
         questionId,
-        'select',
+        'select'
       );
     } else if (mode === 'detail') {
       selectedQuestion(questionId);
@@ -170,8 +170,8 @@ export class DetailMenu extends Component {
     this.setState({
       selectedQuestion: {
         key: id,
-        org: questionId,
-      },
+        org: questionId
+      }
     });
   }
 
@@ -186,7 +186,7 @@ export class DetailMenu extends Component {
       this.props.selectedCreateCacheQuestion(
         this.state.selectedQuestion.org,
         this.state.list.length + 1,
-        'add',
+        'add'
       );
     } else {
       this.props.createQuestionOrigin();
@@ -196,7 +196,7 @@ export class DetailMenu extends Component {
   @autobind
   onClickDeleteChangeIcon() {
     this.setState({
-      isDeleteMode: !this.state.isDeleteMode,
+      isDeleteMode: !this.state.isDeleteMode
     });
   }
 
@@ -262,7 +262,7 @@ DetailMenu.propTypes = {
   deleteQuestion: PropTypes.func,
   deleteQuestionCache: PropTypes.func,
   isUpdateModeChange: PropTypes.func,
-  selectedQuestionId: PropTypes.number,
+  selectedQuestionId: PropTypes.number
 };
 
 export default DetailMenu;

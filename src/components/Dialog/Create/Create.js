@@ -10,7 +10,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { Field, reduxForm, submit, change, getFormValues } from 'redux-form';
 import {
   createNewResume,
-  editResumeInfoData,
+  editResumeInfoData
 } from '../../../store/Resume/Resume.store';
 import autobind from 'autobind-decorator';
 import { withStyles, CircularProgress, IconButton } from '@material-ui/core';
@@ -22,7 +22,7 @@ import scss from './Create.scss';
 import { SelectCreate } from '../../Forms/SelectCreate';
 import { SelectChange } from '../../Forms/SelectChange';
 import MomentUtils from 'material-ui-pickers/utils/moment-utils';
-import MuiPickersUtilsProvider from 'material-ui-pickers/utils/MuiPickersUtilsProvider';
+import MuiPickersUtilsProvider from 'material-ui-pickers/MuiPickersUtilsProvider';
 import DateTimePicker from 'material-ui-pickers/DateTimePicker';
 import moment from 'moment';
 import 'moment/locale/ko';
@@ -34,7 +34,7 @@ moment.locale('ko');
 const styles = theme => ({
   wrapper: {
     margin: theme.spacing.unit,
-    position: 'relative',
+    position: 'relative'
   },
   buttonProgress: {
     color: '#364eda',
@@ -42,8 +42,8 @@ const styles = theme => ({
     top: '50%',
     left: '50%',
     marginTop: -12,
-    marginLeft: -12,
-  },
+    marginLeft: -12
+  }
 });
 @withStyles(styles)
 @reduxForm({
@@ -57,24 +57,24 @@ const styles = theme => ({
     applicationType: '0',
     finishFlag: 0,
     passFlag: 2,
-    deadline: moment().format('YYYY-MM-DD HH'),
+    deadline: moment().format('YYYY-MM-DD HH')
     // TODO: deadline YYYY-MM-DD HH
   },
   onSubmit: (values, dispatch) => {
     dispatch(createNewResume(values));
-  },
+  }
 })
 @connect(
   state => ({
     initialValues: state.resume.createResumeCache.info,
     loading: state.loader.component,
-    formValues: getFormValues('newResume')(state),
+    formValues: getFormValues('newResume')(state)
   }),
   {
     submit: () => submit('newResume'),
     change: (key, value) => change('newResume', key, value),
-    editResumeInfoData,
-  },
+    editResumeInfoData
+  }
 )
 @withRouter
 export class Create extends Component {
@@ -86,7 +86,7 @@ export class Create extends Component {
       halfType,
       applicationType,
       finishFlag,
-      passFlag,
+      passFlag
     } = resumeCreateFormData;
 
     this.state = {
@@ -100,7 +100,7 @@ export class Create extends Component {
       passFlagActive: true,
       companyNameRequired: false,
       jobTypeRequired: false,
-      requiredCount: 0,
+      requiredCount: 0
     };
   }
 
@@ -130,11 +130,11 @@ export class Create extends Component {
           change('jobType', initialValues.jobType);
           change(
             'applicationType',
-            FilterUtils.getKey(applicationType, initialValues.applicationType),
+            FilterUtils.getKey(applicationType, initialValues.applicationType)
           );
           change(
             'finishFlag',
-            FilterUtils.getKey(finishFlag, initialValues.finishFlag),
+            FilterUtils.getKey(finishFlag, initialValues.finishFlag)
           );
           change('passFlag', initialValues.passFlag);
           change('resumeId', match['params']['id']);
@@ -148,19 +148,19 @@ export class Create extends Component {
             'applicationType',
             FilterUtils.getKey(
               applicationType,
-              nextProps.initialValues.applicationType,
-            ),
+              nextProps.initialValues.applicationType
+            )
           );
           change(
             'finishFlag',
-            FilterUtils.getKey(finishFlag, nextProps.initialValues.finishFlag),
+            FilterUtils.getKey(finishFlag, nextProps.initialValues.finishFlag)
           );
           change('passFlag', nextProps.initialValues.passFlag);
           change('resumeId', nextProps.initialValues.resumeId);
           change('mode', mode);
         }
         this.setState({
-          init: false,
+          init: false
         });
       }
     }
@@ -176,11 +176,11 @@ export class Create extends Component {
     change('jobType', initialValues.jobType);
     change(
       'applicationType',
-      FilterUtils.getKey(applicationType, initialValues.applicationType),
+      FilterUtils.getKey(applicationType, initialValues.applicationType)
     );
     change(
       'finishFlag',
-      FilterUtils.getKey(finishFlag, initialValues.finishFlag),
+      FilterUtils.getKey(finishFlag, initialValues.finishFlag)
     );
     change('passFlag', initialValues.passFlag);
     change('resumeId', initialValues.resumeId);
@@ -207,7 +207,7 @@ export class Create extends Component {
     this.setState({
       companyNameRequired: companyNameRequired,
       jobTypeRequired: jobTypeRequired,
-      requiredCount: requiredCount,
+      requiredCount: requiredCount
     });
 
     if (result) {
@@ -227,11 +227,11 @@ export class Create extends Component {
   changeFinishFlag(value) {
     if (value === 0) {
       this.setState({
-        passFlagActive: true,
+        passFlagActive: true
       });
     } else {
       this.setState({
-        passFlagActive: false,
+        passFlagActive: false
       });
     }
   }
@@ -256,7 +256,7 @@ export class Create extends Component {
 
     this.setState({
       companyNameRequired: value.length === 0,
-      requiredCount: requiredCount,
+      requiredCount: requiredCount
     });
   }
 
@@ -280,7 +280,7 @@ export class Create extends Component {
 
     this.setState({
       jobTypeRequired: value.length === 0,
-      requiredCount: requiredCount,
+      requiredCount: requiredCount
     });
   }
 
@@ -296,7 +296,7 @@ export class Create extends Component {
       passFlagActive,
       companyNameRequired,
       jobTypeRequired,
-      requiredCount,
+      requiredCount
     } = this.state;
 
     return (
@@ -335,7 +335,7 @@ export class Create extends Component {
               <div
                 className={scss['create__full']}
                 style={{
-                  background: companyNameRequired ? '#fffcdc' : '#ffffff',
+                  background: companyNameRequired ? '#fffcdc' : '#ffffff'
                 }}
               >
                 {companyNameRequired ? <div className={scss.dot} /> : null}
@@ -386,7 +386,7 @@ export class Create extends Component {
                       value={deadline}
                       onChange={this.handleDateChange}
                       InputProps={{
-                        disableUnderline: true,
+                        disableUnderline: true
                       }}
                     />
                   </MuiPickersUtilsProvider>
@@ -397,7 +397,7 @@ export class Create extends Component {
               <div
                 className={scss['create__full']}
                 style={{
-                  background: jobTypeRequired ? '#fffcdc' : '#ffffff',
+                  background: jobTypeRequired ? '#fffcdc' : '#ffffff'
                 }}
               >
                 {jobTypeRequired ? <div className={scss.dot} /> : null}
@@ -480,7 +480,7 @@ Create.propTypes = {
   initialValues: PropTypes.object,
   loading: PropTypes.bool,
   id: PropTypes.number,
-  formValues: PropTypes.object,
+  formValues: PropTypes.object
 };
 
 export default Create;

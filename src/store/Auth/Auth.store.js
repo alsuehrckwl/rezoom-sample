@@ -25,7 +25,7 @@ const initialState = {
   duplicate: [false, ''],
   loginError: [false, ''],
   passwordChangeError: [false, ''],
-  userInfo: '',
+  userInfo: ''
 };
 
 export default function reducer(state = initialState, action = {}) {
@@ -33,47 +33,47 @@ export default function reducer(state = initialState, action = {}) {
     case LOGIN_SUCCESS:
       return {
         ...state,
-        isLogin: true,
+        isLogin: true
       };
     case LOGOUT_SUCCESS:
       return {
         ...state,
-        isLogin: false,
+        isLogin: false
       };
     case DUPLICATE_USERNAME:
       return {
         ...state,
-        duplicate: [true, action.payload.data],
+        duplicate: [true, action.payload.data]
       };
     case CLEAR_DUPLICATE_USERNAME:
       return {
         ...state,
-        duplicate: [false, ''],
+        duplicate: [false, '']
       };
     case LOGIN_ERROR:
       return {
         ...state,
-        loginError: [true, action.payload.data],
+        loginError: [true, action.payload.data]
       };
     case CLEAR_LOGIN_ERROR:
       return {
         ...state,
-        loginError: [false, ''],
+        loginError: [false, '']
       };
     case RESPONSE_USER_INFO:
       return {
         ...state,
-        userInfo: action.payload.data,
+        userInfo: action.payload.data
       };
     case PASSWORD_CHANGE_ERROR:
       return {
         ...state,
-        passwordChangeError: [true, action.payload.data],
+        passwordChangeError: [true, action.payload.data]
       };
     case CLEAR_PASSWORD_CHANGE_ERROR:
       return {
         ...state,
-        passwordChangeError: [false, ''],
+        passwordChangeError: [false, '']
       };
     default:
       return state;
@@ -83,76 +83,76 @@ export default function reducer(state = initialState, action = {}) {
 export const login = data => ({
   type: LOGIN,
   payload: {
-    data,
-  },
+    data
+  }
 });
 
 export const logout = () => ({
-  type: LOGOUT,
+  type: LOGOUT
 });
 
 export const loginSuccess = () => ({
-  type: LOGIN_SUCCESS,
+  type: LOGIN_SUCCESS
 });
 
 export const logoutSuccess = () => ({
-  type: LOGOUT_SUCCESS,
+  type: LOGOUT_SUCCESS
 });
 
 export const userSignUp = data => ({
   type: USER_SIGN_UP,
   payload: {
-    data,
-  },
+    data
+  }
 });
 
 export const duplicateUsername = data => ({
   type: DUPLICATE_USERNAME,
   payload: {
-    data,
-  },
+    data
+  }
 });
 
 export const clearDuplicateUsername = () => ({
-  type: CLEAR_DUPLICATE_USERNAME,
+  type: CLEAR_DUPLICATE_USERNAME
 });
 
 export const loginError = data => ({
   type: LOGIN_ERROR,
   payload: {
-    data,
-  },
+    data
+  }
 });
 
 export const clearLoginError = () => ({
-  type: CLEAR_LOGIN_ERROR,
+  type: CLEAR_LOGIN_ERROR
 });
 
 export const getUserInfo = () => ({
-  type: GET_USER_INFO,
+  type: GET_USER_INFO
 });
 
 export const responseUserInfo = data => ({
   type: RESPONSE_USER_INFO,
   payload: {
-    data,
-  },
+    data
+  }
 });
 
 export const passwordChangeError = data => ({
   type: PASSWORD_CHANGE_ERROR,
   payload: {
-    data,
-  },
+    data
+  }
 });
 
 export const clearPasswordChangeError = () => ({
-  type: CLEAR_PASSWORD_CHANGE_ERROR,
+  type: CLEAR_PASSWORD_CHANGE_ERROR
 });
 
 export const changePassword = data => ({
   type: CHANGE_PASSWORD,
   payload: {
-    data,
-  },
+    data
+  }
 });

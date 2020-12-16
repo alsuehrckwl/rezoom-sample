@@ -6,9 +6,9 @@ import * as animationData from './loading_stack_documents.json';
 import scss from './Loader.scss';
 @connect(
   state => ({
-    loading: state.loader.container,
+    loading: state.loader.container
   }),
-  {},
+  {}
 )
 export class LoaderContainer extends Component {
   constructor(props) {
@@ -20,9 +20,9 @@ export class LoaderContainer extends Component {
         autoplay: true,
         animationData: animationData,
         rendererSettings: {
-          preserveAspectRatio: 'xMidYMid slice',
-        },
-      },
+          preserveAspectRatio: 'xMidYMid slice'
+        }
+      }
     };
   }
 
@@ -38,7 +38,7 @@ export class LoaderContainer extends Component {
 }
 
 LoaderContainer.propTypes = {
-  loading: PropTypes.bool,
+  loading: PropTypes.bool
 };
 
 export default LoaderContainer;

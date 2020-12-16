@@ -19,9 +19,9 @@ import { Dashboard } from '../Dashboard/Dashboard';
 
 @connect(
   state => ({
-    isLogin: state.auth.isLogin,
+    isLogin: state.auth.isLogin
   }),
-  {},
+  {}
 )
 @withAuthGuard()
 export class Layout extends Component {
@@ -58,7 +58,7 @@ export class Layout extends Component {
 Layout.propTypes = {
   isLogin: PropTypes.bool,
   match: PropTypes.object,
-  location: PropTypes.object,
+  location: PropTypes.object
 };
 
 export default Layout;

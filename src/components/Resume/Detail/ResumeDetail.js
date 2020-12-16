@@ -10,7 +10,7 @@ import { MainButton } from '../../Shared/Button/MainButton';
 import {
   requestCreateQuestion,
   getResumeList,
-  requestUpdateQuestion,
+  requestUpdateQuestion
 } from '../../../store/Resume/Resume.store';
 import { dialogOpen } from '../../../store/Dialog/Dialog.store';
 import editIcon from '../../../static/images/item/ic-edit-alter.svg';
@@ -22,14 +22,14 @@ import failedLabel from '../../../static/images/label/ic-status-label-failed.svg
   state => ({
     resumes: state.resume.resumes,
     createCache: state.resume.createResumeCache,
-    isUpdateMode: state.resume.isUpdateMode,
+    isUpdateMode: state.resume.isUpdateMode
   }),
   {
     requestCreateQuestion,
     requestUpdateQuestion,
     dialogOpen,
-    getResumeList,
-  },
+    getResumeList
+  }
 )
 export class ResumeDetail extends Component {
   constructor(props) {
@@ -47,9 +47,9 @@ export class ResumeDetail extends Component {
         jobType: '',
         passFlag: 2,
         resumeId: 0,
-        username: '',
+        username: ''
       },
-      questionsUpdateFlag: false,
+      questionsUpdateFlag: false
     };
   }
 
@@ -60,12 +60,12 @@ export class ResumeDetail extends Component {
     } else {
       const resumeId = Number(match['params'].id);
       this.setState({
-        resumeData: resumes.filter(item => item.resumeId === resumeId)[0],
+        resumeData: resumes.filter(item => item.resumeId === resumeId)[0]
       });
     }
     if (match['params']['mode'] === 'create') {
       this.setState({
-        resumeData: createCache.info,
+        resumeData: createCache.info
       });
     }
   }
@@ -79,8 +79,8 @@ export class ResumeDetail extends Component {
         if (resumes.length !== nextProps.resumes.length) {
           this.setState({
             resumeData: nextProps.resumes.filter(
-              item => item.resumeId === resumeId,
-            )[0],
+              item => item.resumeId === resumeId
+            )[0]
           });
         }
       }
@@ -141,7 +141,8 @@ export class ResumeDetail extends Component {
                   aria-haspopup="true"
                   onClick={e => this.onClickChangeInfo(e)}
                 >
-                  <img src={editIcon} alt="editIcon" />정보수정
+                  <img src={editIcon} alt="editIcon" />
+                  정보수정
                 </Button>
               </div>
               <p>{resumeData['jobType']}</p>
@@ -178,7 +179,7 @@ ResumeDetail.propTypes = {
   dialogOpen: PropTypes.func,
   getResumeList: PropTypes.func,
   requestUpdateQuestion: PropTypes.func,
-  isUpdateMode: PropTypes.bool,
+  isUpdateMode: PropTypes.bool
 };
 
 export default ResumeDetail;

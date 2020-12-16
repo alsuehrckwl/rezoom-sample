@@ -16,27 +16,27 @@ const initialState = {
     pass: {
       title: '',
       resumeNum: 0,
-      ratio: 0,
+      ratio: 0
     },
     nonPass: {
       title: '',
       resumeNum: 0,
-      ratio: 0,
+      ratio: 0
     },
     submit: {
       title: '',
       resumeNum: 0,
-      ratio: 0,
+      ratio: 0
     },
     nonSubmit: {
       title: '',
       resumeNum: 0,
-      ratio: 0,
-    },
+      ratio: 0
+    }
   },
   recentClick: [],
   hashtag: [],
-  name: '',
+  name: ''
 };
 
 export default function reducer(state = initialState, action = {}) {
@@ -44,27 +44,27 @@ export default function reducer(state = initialState, action = {}) {
     case UPDATE_DEALINE_LIST:
       return {
         ...state,
-        deadline: action.payload.deadline,
+        deadline: action.payload.deadline
       };
     case UPDATE_RESUME_STATISTICS_LIST:
       return {
         ...state,
-        resumeStatistics: action.payload.resumeStatistics,
+        resumeStatistics: action.payload.resumeStatistics
       };
     case UPDATE_RECENT_CLICK_LIST:
       return {
         ...state,
-        recentClick: action.payload.recentClick,
+        recentClick: action.payload.recentClick
       };
     case UPDATE_HASHTAG_LIST:
       return {
         ...state,
-        hashtag: action.payload.hashtag,
+        hashtag: action.payload.hashtag
       };
     case UPDATE_NAME:
       return {
         ...state,
-        name: action.payload.name,
+        name: action.payload.name
       };
     default:
       return state;
@@ -72,56 +72,56 @@ export default function reducer(state = initialState, action = {}) {
 }
 
 export const getDeadline = () => ({
-  type: GET_DEADLINE,
+  type: GET_DEADLINE
 });
 
 export const getResumeStatistics = () => ({
-  type: GET_RESUME_STATISTICS,
+  type: GET_RESUME_STATISTICS
 });
 
 export const getRecentClick = () => ({
-  type: GET_RECENT_CLICK,
+  type: GET_RECENT_CLICK
 });
 
 export const getHashtag = () => ({
-  type: GET_HASHTAG,
+  type: GET_HASHTAG
 });
 
 export const getName = () => ({
-  type: GET_NAME,
+  type: GET_NAME
 });
 
 export const updateDeadlineList = deadline => ({
   type: UPDATE_DEALINE_LIST,
   payload: {
-    deadline,
-  },
+    deadline
+  }
 });
 
 export const updateResumeStatisticsList = resumeStatistics => ({
   type: UPDATE_RESUME_STATISTICS_LIST,
   payload: {
-    resumeStatistics,
-  },
+    resumeStatistics
+  }
 });
 
 export const updateRecentClickList = recentClick => ({
   type: UPDATE_RECENT_CLICK_LIST,
   payload: {
-    recentClick,
-  },
+    recentClick
+  }
 });
 
 export const updateHashtagList = hashtag => ({
   type: UPDATE_HASHTAG_LIST,
   payload: {
-    hashtag,
-  },
+    hashtag
+  }
 });
 
 export const updateName = name => ({
   type: UPDATE_NAME,
   payload: {
-    name,
-  },
+    name
+  }
 });

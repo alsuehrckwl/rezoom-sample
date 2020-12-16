@@ -11,8 +11,8 @@ export class Section2 extends Component {
             자소서에 대한 현황을 <br />한 눈에 보여드립니다
           </h2>
           <p>
-            합격.제출.미제출.불합격과 같은<br /> 정보를 한번에 보여주고 빠르게
-            접근할 수 있습니다
+            합격.제출.미제출.불합격과 같은
+            <br /> 정보를 한번에 보여주고 빠르게 접근할 수 있습니다
           </p>
         </div>
         <div className={scss.cover}>

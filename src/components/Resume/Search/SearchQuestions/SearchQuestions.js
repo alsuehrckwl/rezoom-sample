@@ -9,16 +9,16 @@ import scss from './SearchQuestions.scss';
   state => ({
     searchQuestionsKeyword: state.search.searchQuestionsKeyword,
     searchQuestionsHashTag: state.search.searchQuestionsHashTag,
-    searchMode: state.search.mode,
+    searchMode: state.search.mode
   }),
-  {},
+  {}
 )
 export class SearchQuestions extends Component {
   render() {
     const {
       searchQuestionsKeyword,
       searchQuestionsHashTag,
-      searchMode,
+      searchMode
     } = this.props;
 
     let listItem = [];
@@ -44,7 +44,7 @@ export class SearchQuestions extends Component {
 SearchQuestions.propTypes = {
   searchQuestionsKeyword: PropTypes.array,
   searchQuestionsHashTag: PropTypes.array,
-  searchMode: PropTypes.string,
+  searchMode: PropTypes.string
 };
 
 export default SearchQuestions;

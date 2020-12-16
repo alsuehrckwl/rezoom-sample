@@ -8,11 +8,11 @@ import { dialogClose } from '../../store/Dialog/Dialog.store';
 
 @connect(
   state => ({
-    dialog: state.dialog.dialog,
+    dialog: state.dialog.dialog
   }),
   {
-    dialogClose,
-  },
+    dialogClose
+  }
 )
 export class Dialog extends Component {
   constructor(props) {
@@ -48,7 +48,7 @@ export class Dialog extends Component {
 
 Dialog.propTypes = {
   dialog: PropTypes.object,
-  dialogClose: PropTypes.func,
+  dialogClose: PropTypes.func
 };
 
 export default Dialog;

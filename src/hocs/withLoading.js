@@ -10,8 +10,8 @@ const loadingInjector = fetchingPropKey => ComposedComponent => {
       autoplay: true,
       animationData: animationData,
       rendererSettings: {
-        preserveAspectRatio: 'xMidYMid slice',
-      },
+        preserveAspectRatio: 'xMidYMid slice'
+      }
     };
     return props[fetchingPropKey] ? (
       <Lottie options={defaultOptions} height={400} width={400} />

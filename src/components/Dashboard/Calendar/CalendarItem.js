@@ -10,7 +10,7 @@ export class CalendarItem extends Component {
    * 캘린더 모듈은 샘플.. (조건에 안맞음..))
    */
   static propTypes = {
-    deadlineList: PropTypes.any,
+    deadlineList: PropTypes.any
   };
 
   render() {

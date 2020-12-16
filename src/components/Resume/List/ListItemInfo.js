@@ -12,7 +12,7 @@ export class ListItemInfo extends Component {
       applicationType,
       applicationYear,
       halfType,
-      finishFlag,
+      finishFlag
     } = this.props;
     return (
       <div className={scss['list__item']}>
@@ -64,5 +64,5 @@ ListItemInfo.propTypes = {
   applicationType: PropTypes.string,
   applicationYear: PropTypes.number,
   halfType: PropTypes.string,
-  finishFlag: PropTypes.string,
+  finishFlag: PropTypes.string
 };

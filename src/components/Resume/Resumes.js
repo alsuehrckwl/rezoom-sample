@@ -7,11 +7,11 @@ import { getResumeList } from '../../store/Resume/Resume.store';
 
 @connect(
   state => ({
-    resumeList: state.resume.resumes,
+    resumeList: state.resume.resumes
   }),
   {
-    getResumeList,
-  },
+    getResumeList
+  }
 )
 export class Resumes extends Component {
   constructor(props) {
@@ -36,7 +36,7 @@ export class Resumes extends Component {
 
 Resumes.propTypes = {
   resumeList: PropTypes.any,
-  getResumeList: PropTypes.func,
+  getResumeList: PropTypes.func
 };
 
 export default Resumes;

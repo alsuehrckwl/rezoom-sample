@@ -7,7 +7,7 @@ import autobind from 'autobind-decorator';
 import { SelectForm } from '../../Forms';
 import {
   resumeCreateFormData,
-  questionSearchOption,
+  questionSearchOption
 } from '../../../utils/Constans';
 import { Field, reduxForm, submit, change } from 'redux-form';
 import { KeyboardArrowDown, KeyboardArrowUp } from '@material-ui/icons';
@@ -28,19 +28,16 @@ import clearIcon from '../../../static/images/item/ic-cancel.svg';
     finishFlag: 0,
     passFlag: 2,
     mode: 'resumes',
-    questionSearchOption: 'keyword',
+    questionSearchOption: 'keyword'
   },
   onSubmit: (values, dispatch) => {
     dispatch(searchResumes(values));
-  },
+  }
 })
-@connect(
-  state => ({}),
-  {
-    submit: () => submit('searchForm'),
-    change: (key, value) => change('searchForm', key, value),
-  },
-)
+@connect(state => ({}), {
+  submit: () => submit('searchForm'),
+  change: (key, value) => change('searchForm', key, value)
+})
 @withRouter
 export class SearchForm extends Component {
   constructor(props) {
@@ -51,7 +48,7 @@ export class SearchForm extends Component {
       halfType,
       applicationType,
       finishFlag,
-      passFlag,
+      passFlag
     } = resumeCreateFormData;
 
     this.state = {
@@ -63,11 +60,11 @@ export class SearchForm extends Component {
       questionSearchOption,
       searchMode: [
         { key: '자소서 리스트', id: 0, active: true },
-        { key: '문항별 리스트', id: 1, active: false },
+        { key: '문항별 리스트', id: 1, active: false }
       ],
       menusAnchorEl: null,
       menusOpen: false,
-      searchInputOpen: false,
+      searchInputOpen: false
     };
   }
 
@@ -87,7 +84,7 @@ export class SearchForm extends Component {
     const { currentTarget } = e;
     this.setState(state => ({
       menusOpen: !state.open,
-      menusAnchorEl: currentTarget,
+      menusAnchorEl: currentTarget
     }));
   }
 
@@ -110,7 +107,7 @@ export class SearchForm extends Component {
       });
       this.setState({
         searchMode: searchMode,
-        menusOpen: false,
+        menusOpen: false
       });
       if (id === 0) {
         this.props.change('mode', 'resumes');
@@ -119,7 +116,7 @@ export class SearchForm extends Component {
       }
     } else {
       this.setState({
-        menusOpen: false,
+        menusOpen: false
       });
     }
   }
@@ -127,7 +124,7 @@ export class SearchForm extends Component {
   @autobind
   onClickSearch() {
     this.setState({
-      searchInputOpen: !this.state.searchInputOpen,
+      searchInputOpen: !this.state.searchInputOpen
     });
   }
 
@@ -142,7 +139,7 @@ export class SearchForm extends Component {
       searchMode,
       menusAnchorEl,
       menusOpen,
-      searchInputOpen,
+      searchInputOpen
     } = this.state;
 
     const { pathname } = this.props;
@@ -299,7 +296,7 @@ export class SearchForm extends Component {
 SearchForm.propTypes = {
   submit: PropTypes.func,
   change: PropTypes.func,
-  pathname: PropTypes.string,
+  pathname: PropTypes.string
 };
 
 export default SearchForm;

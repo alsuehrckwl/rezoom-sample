@@ -6,9 +6,9 @@ import { List } from '../List/List';
 
 @connect(
   state => ({
-    searchResumeList: state.search.searchResumes,
+    searchResumeList: state.search.searchResumes
   }),
-  {},
+  {}
 )
 export class Search extends Component {
   render() {
@@ -24,7 +24,7 @@ export class Search extends Component {
 }
 
 Search.propTypes = {
-  searchResumeList: PropTypes.any,
+  searchResumeList: PropTypes.any
 };
 
 export default Search;

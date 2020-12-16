@@ -5,7 +5,7 @@ import scss from './ResumeGraph.scss';
 
 export class ResumeGraph extends Component {
   static propTypes = {
-    resumeStatisticsList: PropTypes.any,
+    resumeStatisticsList: PropTypes.any
   };
 
   render() {
@@ -15,7 +15,7 @@ export class ResumeGraph extends Component {
         resumeStatisticsList.pass.title,
         resumeStatisticsList.nonPass.title,
         resumeStatisticsList.submit.title,
-        resumeStatisticsList.nonSubmit.title,
+        resumeStatisticsList.nonSubmit.title
       ],
       datasets: [
         {
@@ -23,17 +23,17 @@ export class ResumeGraph extends Component {
             resumeStatisticsList.pass.ratio,
             resumeStatisticsList.nonPass.ratio,
             resumeStatisticsList.submit.ratio,
-            resumeStatisticsList.nonSubmit.ratio,
+            resumeStatisticsList.nonSubmit.ratio
           ],
           backgroundColor: ['#4a61f5', '#8594fe', '#a6b2ff', '#d3d8fc'],
           hoverBackgroundColor: ['#4a61f5', '#8594fe', '#a6b2ff', '#d3d8fc'],
-          borderWidth: 0,
-        },
-      ],
+          borderWidth: 0
+        }
+      ]
     };
     const style = {
       width: '100%',
-      height: '100%',
+      height: '100%'
     };
     return (
       <div className={scss.chart__area}>
@@ -49,11 +49,11 @@ export class ResumeGraph extends Component {
                 maintainAspectRatio: false,
                 cutoutPercentage: 88,
                 legend: {
-                  display: false,
+                  display: false
                 },
                 layout: {
-                  padding: 0,
-                },
+                  padding: 0
+                }
               }}
             />
           </div>

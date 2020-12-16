@@ -15,7 +15,7 @@ const configureStore = (initialState, history) => {
       setImmediate(() => {
         console.log(err);
       });
-    },
+    }
   });
 
   const enhancers = [
@@ -23,14 +23,14 @@ const configureStore = (initialState, history) => {
     applyMiddleware(routerMiddleware(history)),
     devtools({
       actionsBlacklist: ['trade/UPDATE_TICKER'],
-      maxAge: 1000,
-    }),
+      maxAge: 1000
+    })
   ];
 
   const store = createStore(
     connectRouter(history)(reducers),
     initialState,
-    compose(...enhancers),
+    compose(...enhancers)
   );
 
   let sagaTask = sagaMiddleware.run(sagas);

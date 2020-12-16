@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 
 const reducers = {
-  form: formReducer,
+  form: formReducer
 };
 
 const req = require.context('.', true, /\.\/.+\/\w+\.+store\.js$/);

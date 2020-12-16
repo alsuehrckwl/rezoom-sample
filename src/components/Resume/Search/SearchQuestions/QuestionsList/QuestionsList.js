@@ -7,7 +7,7 @@ import {
   Card,
   Chip,
   createMuiTheme,
-  MuiThemeProvider,
+  MuiThemeProvider
 } from '@material-ui/core';
 import scss from './QuestionsList.scss';
 
@@ -19,10 +19,10 @@ const theme = createMuiTheme({
         borderRadius: 20.5,
         backgroundColor: '#ffffff',
         border: 'solid 1px #ced8ea',
-        marginRight: 6,
-      },
-    },
-  },
+        marginRight: 6
+      }
+    }
+  }
 });
 
 export class QuestionsList extends Component {
@@ -90,7 +90,7 @@ export class QuestionsList extends Component {
 
 QuestionsList.propTypes = {
   searchQuestionsList: PropTypes.array,
-  searchMode: PropTypes.string,
+  searchMode: PropTypes.string
 };
 
 export default QuestionsList;

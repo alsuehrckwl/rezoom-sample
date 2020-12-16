@@ -17,7 +17,7 @@ const config = {
     'September',
     'October',
     'November',
-    'December',
+    'December'
   ],
   month_subs: [
     'Jan',
@@ -30,7 +30,7 @@ const config = {
     'Sept',
     'Oct',
     'Nov',
-    'Dec',
+    'Dec'
   ],
   weeks: [
     'Sunday',
@@ -39,12 +39,12 @@ const config = {
     'Wednesday',
     'Thursday',
     'Friday',
-    'Saturday',
+    'Saturday'
   ],
   week_subs: ['SU', 'MO', 'TU', 'WE', 'TH', 'FR', 'SA'],
   today: function() {
     return new Date();
-  },
+  }
 };
 const TODAY = config.today();
 
@@ -54,7 +54,7 @@ export class Calendar extends Component {
     this.state = {
       current: config.today(),
       selected: config.today(),
-      ldom: 30,
+      ldom: 30
     };
   }
 
@@ -68,7 +68,7 @@ export class Calendar extends Component {
     var eom = new Date(d.getYear(), d.getMonth() + 1, 0).getDate();
     this.setState({
       current: d,
-      ldom: eom,
+      ldom: eom
     });
   }
 
@@ -86,7 +86,7 @@ export class Calendar extends Component {
     d.setDate(day);
     this.props.onDatePicked(d);
     this.setState({
-      selected: d,
+      selected: d
     });
   }
 
@@ -98,7 +98,7 @@ export class Calendar extends Component {
     if (opts.today) {
       today = scss.current;
       todayStyle = {
-        borderColor: this.props.accentColor,
+        borderColor: this.props.accentColor
       };
     }
 
@@ -107,10 +107,10 @@ export class Calendar extends Component {
     if (opts.selected) {
       selected = scss.selected;
       selectedStyle = {
-        backgroundColor: this.props.accentColor,
+        backgroundColor: this.props.accentColor
       };
       containerStyle = {
-        color: '#ffffff',
+        color: '#ffffff'
       };
     }
 
@@ -177,8 +177,8 @@ export class Calendar extends Component {
           selected: isSelected,
           current: inMonth,
           month: inMonth ? 0 : lastMonth ? -1 : 1,
-          date: copy,
-        }),
+          date: copy
+        })
       );
     }
 
@@ -192,7 +192,7 @@ export class Calendar extends Component {
       header.push(
         <p className={`${scss['day-headers']} ${scss.noselect}`}>
           {config.week_subs[i]}
-        </p>,
+        </p>
       );
     }
 
@@ -221,7 +221,7 @@ export class Calendar extends Component {
         <div
           className={`${scss['flex-2']} ${scss.header} ${scss.center}`}
           style={{
-            backgroundColor: this.props.accentColor,
+            backgroundColor: this.props.accentColor
           }}
         >
           <p className={scss['header-month']}>{tMonth.toUpperCase()}</p>
@@ -266,14 +266,14 @@ Calendar.propTypes = {
   accentColor: PropTypes.string,
   onDatePicked: PropTypes.func,
   showHeader: PropTypes.bool,
-  orientation: PropTypes.string,
+  orientation: PropTypes.string
 };
 
 Calendar.defaultProps = {
   accentColor: '#00C1A6',
   onDatePicked: function() {},
   showHeader: true,
-  orientation: 'flex-col',
+  orientation: 'flex-col'
 };
 
 export default Calendar;

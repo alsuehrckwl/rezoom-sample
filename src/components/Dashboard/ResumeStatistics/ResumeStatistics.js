@@ -8,7 +8,7 @@ export class ResumeStatistics extends Component {
     resumeStatisticsList: PropTypes.any,
     username: PropTypes.string,
     deadlineList: PropTypes.any,
-    resumes: PropTypes.array,
+    resumes: PropTypes.array
   };
 
   render() {
@@ -16,7 +16,7 @@ export class ResumeStatistics extends Component {
       resumeStatisticsList,
       username,
       deadlineList,
-      resumes,
+      resumes
     } = this.props;
     return (
       <div className={scss.resume__statistics}>

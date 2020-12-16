@@ -22,5 +22,5 @@ export class DeadlineListItem extends Component {
 DeadlineListItem.propTypes = {
   companyName: PropTypes.string,
   jobType: PropTypes.string,
-  deadline: PropTypes.string,
+  deadline: PropTypes.string
 };

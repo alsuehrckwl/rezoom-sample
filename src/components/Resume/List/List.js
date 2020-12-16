@@ -14,16 +14,13 @@ import passLabel from '../../../static/images/label/ic-status-label-pass.svg';
 import failedLabel from '../../../static/images/label/ic-status-label-failed.svg';
 // import passLabel from '../../../static/images/label/ic-status-label-pass.svg';
 
-@connect(
-  state => ({}),
-  {
-    dialogOpen,
-  },
-)
+@connect(state => ({}), {
+  dialogOpen
+})
 export class List extends Component {
   static propTypes = {
     resumeList: PropTypes.any,
-    dialogOpen: PropTypes.func,
+    dialogOpen: PropTypes.func
   };
 
   @autobind

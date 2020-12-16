@@ -9,7 +9,7 @@ import { logout } from '../../../store/Auth/Auth.store';
 import { dialogOpen } from '../../../store/Dialog/Dialog.store';
 import {
   isUpdateModeChange,
-  clearQuestionCache,
+  clearQuestionCache
 } from '../../../store/Resume/Resume.store';
 import scss from './Header.scss';
 import autobind from 'autobind-decorator';
@@ -23,15 +23,12 @@ import dashboardIcon from '../../../static/images/menu/ic-nav-dashboard.svg';
 import mypageIcon from '../../../static/images/menu/ic-nav-mypage.svg';
 
 @withRouter
-@connect(
-  state => ({}),
-  {
-    logout,
-    dialogOpen,
-    isUpdateModeChange,
-    clearQuestionCache,
-  },
-)
+@connect(state => ({}), {
+  logout,
+  dialogOpen,
+  isUpdateModeChange,
+  clearQuestionCache
+})
 class Header extends Component {
   @autobind
   onClickLogout(e) {
@@ -140,7 +137,7 @@ Header.propTypes = {
   location: PropTypes.object,
   dialogOpen: PropTypes.func,
   isUpdateModeChange: PropTypes.func,
-  clearQuestionCache: PropTypes.func,
+  clearQuestionCache: PropTypes.func
 };
 
 export default Header;

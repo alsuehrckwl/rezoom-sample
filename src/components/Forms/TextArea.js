@@ -20,9 +20,9 @@ const renderInput = ({
       InputProps={{
         disableUnderline: true,
         classes: {
-          root: classes.root,
+          root: classes.root
         },
-        maxLength: 1000,
+        maxLength: 1000
       }}
       rows={rows}
       rowsMax={rowsMax}
@@ -41,15 +41,15 @@ renderInput.propTypes = {
   rows: PropTypes.number,
   rowsMax: PropTypes.number,
   meta: PropTypes.object,
-  classes: PropTypes.object,
+  classes: PropTypes.object
 };
 
 const styles = {
   root: {
     fontSize: 16,
     fontWeight: 'normal',
-    color: '#001322',
-  },
+    color: '#001322'
+  }
 };
 @withStyles(styles)
 export class TextArea extends Component {
@@ -83,7 +83,7 @@ TextArea.propTypes = {
   rows: PropTypes.number.isRequired,
   rowsMax: PropTypes.number.isRequired,
   classes: PropTypes.object,
-  updateText: PropTypes.func,
+  updateText: PropTypes.func
 };
 
 export default TextArea;

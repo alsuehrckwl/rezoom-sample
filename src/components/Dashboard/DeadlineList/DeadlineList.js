@@ -5,7 +5,7 @@ import scss from './DeadlineList.scss';
 
 export class DeadlineList extends Component {
   static propTypes = {
-    deadlineList: PropTypes.any,
+    deadlineList: PropTypes.any
   };
 
   render() {

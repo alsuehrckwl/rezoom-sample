@@ -11,7 +11,7 @@ import {
   Button,
   withStyles,
   Paper,
-  CircularProgress,
+  CircularProgress
 } from '@material-ui/core';
 import { getUserInfo, changePassword } from '../../store/Auth/Auth.store';
 import scss from './MyPage.scss';
@@ -23,17 +23,17 @@ const theme = createMuiTheme({
   overrides: {
     MuiCardContent: {
       root: {
-        padding: '0px !important',
-      },
+        padding: '0px !important'
+      }
     },
     MuiCardActions: {
       root: {
         padding: '31px 75px 25px 488px !important',
-        height: 100,
+        height: 100
       },
       action: {
-        margin: '0px',
-      },
+        margin: '0px'
+      }
     },
     MuiButton: {
       root: {
@@ -44,8 +44,8 @@ const theme = createMuiTheme({
         borderRadius: 28,
         fontSize: '14px !important',
         fontWeight: 'bold',
-        boxShadow: '0 2px 6px 0 rgba(159, 159, 159, 0.5)',
-      },
+        boxShadow: '0 2px 6px 0 rgba(159, 159, 159, 0.5)'
+      }
     },
     MuiCard: {
       root: {
@@ -53,23 +53,23 @@ const theme = createMuiTheme({
         height: 218,
         minHeight: 218,
         borderRadius: 0,
-        boxShadow: '0 4px 9px 0 rgba(0, 0, 0, 0.02)',
-      },
+        boxShadow: '0 4px 9px 0 rgba(0, 0, 0, 0.02)'
+      }
     },
     MuiPaper: {
       root: {
         width: 720,
         minHeight: 420,
-        marginBottom: 29,
+        marginBottom: 29
       },
       elevation2: {
-        boxShadow: '0 4px 9px 0 rgba(0, 0, 0, 0.02)',
+        boxShadow: '0 4px 9px 0 rgba(0, 0, 0, 0.02)'
       },
       rounded: {
-        borderRadius: 0,
-      },
-    },
-  },
+        borderRadius: 0
+      }
+    }
+  }
 });
 
 const styles = {
@@ -79,7 +79,7 @@ const styles = {
     marginBottom: 32,
     fontSize: 24,
     color: '#222222',
-    width: 200,
+    width: 200
   },
   titlePasswd: {
     marginTop: 32,
@@ -87,13 +87,13 @@ const styles = {
     marginBottom: 50,
     fontSize: 24,
     color: '#222222',
-    width: 200,
+    width: 200
   },
   account: {
     fontSize: 14,
     textAlign: 'center',
     margin: '14px 32px',
-    fontWeight: 'normal',
+    fontWeight: 'normal'
   },
   label: {
     width: 117,
@@ -107,8 +107,8 @@ const styles = {
     border: 0,
     letterSpacing: -0.7,
     display: 'inline-block',
-    float: 'left',
-  },
+    float: 'left'
+  }
 };
 
 @withStyles(styles)
@@ -118,23 +118,23 @@ const styles = {
   initialValues: {
     password: '',
     newPassword: '',
-    newPasswordCheck: '',
+    newPasswordCheck: ''
   },
   onSubmit: (values, dispatch) => {
     dispatch(changePassword(values));
-  },
+  }
 })
 @connect(
   state => ({
     formValues: getFormValues('changePasswordForm')(state),
     loading: state.loader.container,
     userInfo: state.auth.userInfo,
-    passwordChangeError: state.auth.passwordChangeError,
+    passwordChangeError: state.auth.passwordChangeError
   }),
   {
     getUserInfo,
-    submit: () => submit('changePasswordForm'),
-  },
+    submit: () => submit('changePasswordForm')
+  }
 )
 class MyPage extends Component {
   constructor(props) {
@@ -146,7 +146,7 @@ class MyPage extends Component {
       newPasswordCheck: '',
       passwordRequired: [false, '패스워드를 입력하세요.'],
       newPasswordRequired: [false, '패스워드를 입력하세요.'],
-      newPasswordCheckRequired: [false, '패스워드를 입력하세요.'],
+      newPasswordCheckRequired: [false, '패스워드를 입력하세요.']
     };
   }
 
@@ -161,7 +161,7 @@ class MyPage extends Component {
 
     if (passwordChangeError[0] !== nextProps.passwordChangeError[0]) {
       this.setState({
-        passwordRequired: nextProps.passwordChangeError,
+        passwordRequired: nextProps.passwordChangeError
       });
     }
   }
@@ -209,12 +209,12 @@ class MyPage extends Component {
       passwordRequired: [passwordRequired, '패스워드를입력하세요.'],
       newPasswordRequired: [
         checkPasswordBoolOriginAndNew,
-        checkPasswordOriginAndNew,
+        checkPasswordOriginAndNew
       ],
       newPasswordCheckRequired: [
         checkPasswordBoolNewAndNew,
-        checkPasswordNewAndNew,
-      ],
+        checkPasswordNewAndNew
+      ]
     });
 
     return result;
@@ -225,7 +225,7 @@ class MyPage extends Component {
     const { passwordChangeError } = this.props;
     this.setState({
       passwordRequired: [value.length === 0, '패스워드를 입력하세요.'],
-      password: value,
+      password: value
     });
   }
 
@@ -233,7 +233,7 @@ class MyPage extends Component {
   onChangeNewPassword(e, value) {
     this.setState({
       newPasswordRequired: [value.length === 0, '패스워드를 입력하세요.'],
-      newPassword: value,
+      newPassword: value
     });
   }
 
@@ -241,7 +241,7 @@ class MyPage extends Component {
   onChangeNewPasswordCheck(e, value) {
     this.setState({
       newPasswordCheckRequired: [value.length === 0, '패스워드를 입력하세요.'],
-      newPasswordCheck: value,
+      newPasswordCheck: value
     });
   }
 
@@ -251,7 +251,7 @@ class MyPage extends Component {
     const {
       passwordRequired,
       newPasswordRequired,
-      newPasswordCheckRequired,
+      newPasswordCheckRequired
     } = this.state;
 
     return (
@@ -281,7 +281,7 @@ class MyPage extends Component {
                       fontSize: '14px',
                       marginLeft: '208px',
                       marginTop: '4px',
-                      paddingTop: '4px',
+                      paddingTop: '4px'
                     }}
                   >
                     {userInfo}
@@ -293,7 +293,7 @@ class MyPage extends Component {
                     color: '#668298',
                     fontSize: '14px',
                     marginLeft: '72px',
-                    marginTop: '20px',
+                    marginTop: '20px'
                   }}
                 >
                   등록된 이메일로 로그인할 수 있습니다. <br />
@@ -310,7 +310,7 @@ class MyPage extends Component {
                 <div
                   className={scss.form}
                   style={{
-                    border: passwordRequired[0] ? 'solid 1px #f1552f' : 0,
+                    border: passwordRequired[0] ? 'solid 1px #f1552f' : 0
                   }}
                 >
                   <div className={scss.label}>
@@ -331,7 +331,7 @@ class MyPage extends Component {
                 <div
                   className={scss.form}
                   style={{
-                    border: newPasswordRequired[0] ? 'solid 1px #f1552f' : 0,
+                    border: newPasswordRequired[0] ? 'solid 1px #f1552f' : 0
                   }}
                 >
                   <div className={scss.label}>
@@ -356,7 +356,7 @@ class MyPage extends Component {
                   style={{
                     border: newPasswordCheckRequired[0]
                       ? 'solid 1px #f1552f'
-                      : 0,
+                      : 0
                   }}
                 >
                   <div className={scss.label}>
@@ -408,7 +408,7 @@ MyPage.propTypes = {
   loading: PropTypes.bool,
   getUserInfo: PropTypes.func,
   passwordChangeError: PropTypes.array,
-  userInfo: PropTypes.string,
+  userInfo: PropTypes.string
 };
 
 export default MyPage;

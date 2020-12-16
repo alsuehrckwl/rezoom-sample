@@ -13,11 +13,11 @@ const styles = theme => ({
     backgroundColor: 'white',
     boxShadow: '0 2px 6px 0 rgba(159, 159, 159, 0.5)',
     fontSize: 14,
-    fontWeight: 'bold',
+    fontWeight: 'bold'
   },
   img: {
-    marginRight: 11,
-  },
+    marginRight: 11
+  }
 });
 @withStyles(styles)
 export class MainButton extends Component {
@@ -52,7 +52,7 @@ MainButton.propTypes = {
   onClickButton: PropTypes.func,
   text: PropTypes.string,
   type: PropTypes.string,
-  isDisabled: PropTypes.bool,
+  isDisabled: PropTypes.bool
 };
 
 export default MainButton;

@@ -5,7 +5,7 @@ import { Divider } from '@material-ui/core';
 
 export class RecentClickList extends Component {
   static propTypes = {
-    recentClickList: PropTypes.any,
+    recentClickList: PropTypes.any
   };
 
   render() {

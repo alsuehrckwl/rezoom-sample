@@ -6,7 +6,7 @@ import {
   Paper,
   ClickAwayListener,
   MenuList,
-  MenuItem,
+  MenuItem
 } from '@material-ui/core';
 import scss from './Search.scss';
 import autobind from 'autobind-decorator';
@@ -34,7 +34,7 @@ export class SeacrhMenuPopper extends Component {
             id="menu-list-grow"
             style={{
               transformOrigin:
-                placement === 'bottom' ? 'center top' : 'center bottom',
+                placement === 'bottom' ? 'center top' : 'center bottom'
             }}
           >
             <Paper>
@@ -59,7 +59,7 @@ export class SeacrhMenuPopper extends Component {
 SeacrhMenuPopper.propTypes = {
   closeSearchMenuPopper: PropTypes.func,
   menusOpen: PropTypes.bool,
-  menusAnchorEl: PropTypes.object,
+  menusAnchorEl: PropTypes.object
 };
 
 export default SeacrhMenuPopper;

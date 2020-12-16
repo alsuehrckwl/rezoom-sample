@@ -14,7 +14,7 @@ import {
   responseUserInfo,
   passwordChangeError,
   clearPasswordChangeError,
-  CHANGE_PASSWORD,
+  CHANGE_PASSWORD
 } from './Auth.store';
 import api from '../../service';
 import Cookies from 'js-cookie';
@@ -22,7 +22,7 @@ import {
   activeLoadingContainer,
   inactiveLoadingContainer,
   inactiveLoadingComponent,
-  activeLoadingComponent,
+  activeLoadingComponent
 } from '../Loader/Loader.store';
 import { openSnackbar } from '../Snackbar/Snackbar.store';
 
@@ -32,7 +32,7 @@ export function* login(data) {
 
     const params = {
       username: data.username,
-      password: data.password,
+      password: data.password
     };
 
     const result = yield call(api.login, params);
@@ -40,14 +40,14 @@ export function* login(data) {
     if (result.status === 400) {
       yield put(
         loginError(
-          '등록되지 않은 아이디거나, 아이디 혹은 비밀번호를 잘못 입력하셨습니다.',
-        ),
+          '등록되지 않은 아이디거나, 아이디 혹은 비밀번호를 잘못 입력하셨습니다.'
+        )
       );
       yield put(
         openSnackbar({
           variant: 'error',
-          message: '로그인에 실패하였습니다.',
-        }),
+          message: '로그인에 실패하였습니다.'
+        })
       );
     } else {
       Cookies.set('jwt', result.data);
@@ -55,8 +55,8 @@ export function* login(data) {
       yield put(
         openSnackbar({
           variant: 'success',
-          message: `${data.username}님 안녕하세요.`,
-        }),
+          message: `${data.username}님 안녕하세요.`
+        })
       );
       yield put(loginSuccess());
     }
@@ -73,8 +73,8 @@ export function* logout() {
     yield put(
       openSnackbar({
         variant: 'success',
-        message: 'Rezoom을 사용해 주셔서 감사합니다.',
-      }),
+        message: 'Rezoom을 사용해 주셔서 감사합니다.'
+      })
     );
     yield put(push(`/login`));
   } catch (e) {
@@ -89,7 +89,7 @@ export function* signUp(data) {
     const params = {
       name: data.name,
       username: data.username,
-      password: data.password,
+      password: data.password
     };
 
     const result = yield call(api.signUp, params);
@@ -99,8 +99,8 @@ export function* signUp(data) {
       yield put(
         openSnackbar({
           variant: 'error',
-          message: '회원가입에 실패하였습니다.',
-        }),
+          message: '회원가입에 실패하였습니다.'
+        })
       );
     } else {
       yield put(clearDuplicateUsername());
@@ -108,8 +108,8 @@ export function* signUp(data) {
       yield put(
         openSnackbar({
           variant: 'success',
-          message: 'Rezoom 회원가입을 축하드립니다.',
-        }),
+          message: 'Rezoom 회원가입을 축하드립니다.'
+        })
       );
     }
     yield put(inactiveLoadingComponent());
@@ -139,7 +139,7 @@ export function* changePassword(data) {
 
     const params = {
       password: data.password,
-      newPassword: data.newPassword,
+      newPassword: data.newPassword
     };
 
     const result = yield call(api.changePassword, params);
@@ -149,16 +149,16 @@ export function* changePassword(data) {
       yield put(
         openSnackbar({
           variant: 'error',
-          message: '비밀번호 변경을 실패하였습니다.',
-        }),
+          message: '비밀번호 변경을 실패하였습니다.'
+        })
       );
     } else {
       yield put(clearPasswordChangeError());
       yield put(
         openSnackbar({
           variant: 'success',
-          message: '비밀번호가 성공적으로 변경되었습니다.',
-        }),
+          message: '비밀번호가 성공적으로 변경되었습니다.'
+        })
       );
     }
     yield put(inactiveLoadingComponent());

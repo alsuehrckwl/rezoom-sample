@@ -8,11 +8,11 @@ import { inactiveLoadingContainer } from '../../store/Loader/Loader.store';
 
 @connect(
   state => ({
-    sidebarMenus: state.sidebar.menu.files,
+    sidebarMenus: state.sidebar.menu.files
   }),
   {
-    inactiveLoadingContainer,
-  },
+    inactiveLoadingContainer
+  }
 )
 export class Files extends Component {
   constructor(props) {
@@ -69,7 +69,7 @@ export class Files extends Component {
 }
 
 Files.propTypes = {
-  inactiveLoadingContainer: PropTypes.func,
+  inactiveLoadingContainer: PropTypes.func
 };
 
 export default Files;

@@ -10,20 +10,20 @@ const theme = createMuiTheme({
     MuiInput: {
       underline: {
         '&:before': {
-          borderBottom: 0,
+          borderBottom: 0
         },
         '&:after': {
-          borderBottom: 0,
+          borderBottom: 0
         },
         '&:hover:not($disabled):not($focused):not($error):before': {
-          borderBottom: 0,
-        },
+          borderBottom: 0
+        }
       },
       input: {
-        padding: 0,
-      },
-    },
-  },
+        padding: 0
+      }
+    }
+  }
 });
 
 const renderSelect = ({
@@ -60,7 +60,7 @@ renderSelect.propTypes = {
   label: PropTypes.string,
   meta: PropTypes.object,
   children: PropTypes.node,
-  disabled: PropTypes.bool,
+  disabled: PropTypes.bool
 };
 
 export class SelectCreate extends Component {
@@ -93,7 +93,7 @@ SelectCreate.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   items: PropTypes.array.isRequired,
-  disabled: PropTypes.bool,
+  disabled: PropTypes.bool
 };
 
 export default SelectCreate;

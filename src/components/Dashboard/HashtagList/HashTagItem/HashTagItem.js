@@ -9,8 +9,8 @@ const styles = {
     backgroundColor: '#ffffff',
     border: 'solid 1px #ced8ea',
     marginRight: 12,
-    marginBottom: 8,
-  },
+    marginBottom: 8
+  }
 };
 @withStyles(styles)
 export class HashTagItem extends Component {
@@ -30,5 +30,5 @@ export class HashTagItem extends Component {
 HashTagItem.propTypes = {
   hashtagId: PropTypes.number,
   hashtagKeyword: PropTypes.string,
-  classes: PropTypes.object,
+  classes: PropTypes.object
 };

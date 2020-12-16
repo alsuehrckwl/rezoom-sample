@@ -26,7 +26,7 @@ renderInput.propTypes = {
   name: PropTypes.string,
   input: PropTypes.shape(fieldInputPropTypes).isRequired,
   label: PropTypes.string,
-  meta: PropTypes.object,
+  meta: PropTypes.object
 };
 
 const styles = {
@@ -36,8 +36,8 @@ const styles = {
     backgroundColor: '#ffffff',
     border: 'solid 1px #ced8ea',
     marginRight: 12,
-    marginBottom: 8,
-  },
+    marginBottom: 8
+  }
 };
 @withStyles(styles)
 export class HashTag extends Component {
@@ -82,7 +82,7 @@ HashTag.propTypes = {
   label: PropTypes.string.isRequired,
   tags: PropTypes.array,
   classes: PropTypes.object,
-  onClickAddHashTag: PropTypes.func,
+  onClickAddHashTag: PropTypes.func
 };
 
 export default HashTag;

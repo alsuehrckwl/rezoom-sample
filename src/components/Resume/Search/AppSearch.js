@@ -19,15 +19,15 @@ const styles = theme => ({
     borderRadius: 2,
     background: fade(theme.palette.common.white, 0.15),
     '&:hover': {
-      background: fade(theme.palette.common.white, 0.25),
+      background: fade(theme.palette.common.white, 0.25)
     },
     '& $inputInput': {
       transition: theme.transitions.create('width'),
       width: 120,
       '&:focus': {
-        width: 170,
-      },
-    },
+        width: 170
+      }
+    }
   },
   search: {
     width: theme.spacing.unit * 9,
@@ -36,16 +36,16 @@ const styles = theme => ({
     pointerEvents: 'none',
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   inputRoot: {
-    color: 'inherit',
+    color: 'inherit'
   },
   inputInput: {
     padding: `${theme.spacing.unit}px ${theme.spacing.unit}px ${
       theme.spacing.unit
-    }px ${theme.spacing.unit * 9}px`,
-  },
+    }px ${theme.spacing.unit * 9}px`
+  }
 });
 
 class AppSearch extends React.Component {
@@ -64,7 +64,7 @@ class AppSearch extends React.Component {
           id={name}
           classes={{
             root: classes.inputRoot,
-            input: classes.inputInput,
+            input: classes.inputInput
           }}
         />
       </div>
@@ -74,10 +74,7 @@ class AppSearch extends React.Component {
 
 AppSearch.propTypes = {
   classes: PropTypes.object.isRequired,
-  width: PropTypes.string.isRequired,
+  width: PropTypes.string.isRequired
 };
 
-export default compose(
-  withStyles(styles),
-  withWidth(),
-)(AppSearch);
+export default compose(withStyles(styles), withWidth())(AppSearch);

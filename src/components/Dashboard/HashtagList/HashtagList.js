@@ -8,7 +8,7 @@ import userIcon from '../../../static/images/dashboard/icon2.PNG';
 export class HashtagList extends Component {
   static propTypes = {
     hashtagList: PropTypes.any,
-    username: PropTypes.string,
+    username: PropTypes.string
   };
 
   render() {

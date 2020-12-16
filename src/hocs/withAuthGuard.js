@@ -7,7 +7,7 @@ const withAuthGuard = isLogin => WrappedComponent => {
   return class AuthGuard extends Component {
     static propTypes = {
       isLogin: PropTypes.bool,
-      match: PropTypes.object,
+      match: PropTypes.object
     };
     constructor(props) {
       super(props);

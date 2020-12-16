@@ -12,7 +12,7 @@ import {
   FormLabel,
   RadioGroup,
   FormControlLabel,
-  Radio,
+  Radio
 } from '@material-ui/core';
 import scss from './ResumeDetailForm.scss';
 import { TextArea } from '../../Forms';
@@ -21,7 +21,7 @@ import {
   updateResumeDetailCacheRealtime,
   updateResumeDetailOrigin,
   updateResumeDetailOriginRealtime,
-  isUpdateModeChange,
+  isUpdateModeChange
 } from '../../../store/Resume/Resume.store';
 import { HashTag } from '../../Forms/hashTag';
 import autobind from 'autobind-decorator';
@@ -29,14 +29,14 @@ import { HashTagsDialog } from '../../Dialog/HashTags/HashTagsDialog';
 import Scrollbars from 'react-custom-scrollbars';
 
 @reduxForm({
-  form: 'resumeDetail',
+  form: 'resumeDetail'
 })
 @connect(
   state => ({
     formValues: getFormValues('resumeDetail')(state),
     originQuestionId: state.resume.selectedQuestion,
     originQuestions: state.resume.questions,
-    createCacheQuestions: state.resume.createResumeCache,
+    createCacheQuestions: state.resume.createResumeCache
   }),
   {
     updateResumeDetailCache,
@@ -44,8 +44,8 @@ import Scrollbars from 'react-custom-scrollbars';
     updateResumeDetailOrigin,
     updateResumeDetailOriginRealtime,
     isUpdateModeChange,
-    change: (key, value) => change('resumeDetail', key, value),
-  },
+    change: (key, value) => change('resumeDetail', key, value)
+  }
 )
 export class ResumeDetailForm extends Component {
   constructor(props) {
@@ -58,7 +58,7 @@ export class ResumeDetailForm extends Component {
       anchorEl: null,
       isUpdate: false,
       contentLength: 0,
-      contentLengthError: [false, ''],
+      contentLengthError: [false, '']
     };
   }
 
@@ -67,14 +67,14 @@ export class ResumeDetailForm extends Component {
       mode,
       originQuestionId,
       originQuestions,
-      createCacheQuestions,
+      createCacheQuestions
     } = this.props;
 
     const { formValues } = this.props;
     let value = {
       content: '',
       title: '',
-      hashTags: [],
+      hashTags: []
     };
     if (formValues) {
       value = formValues;
@@ -86,12 +86,12 @@ export class ResumeDetailForm extends Component {
       ) {
         this.props.updateResumeDetailCache({
           id: nextProps.createCacheQuestions.thisId,
-          value: value,
+          value: value
         });
 
         this.changeFormValues(
           nextProps.createCacheQuestions.detail,
-          nextProps.createCacheQuestions.thisId,
+          nextProps.createCacheQuestions.thisId
         );
       }
     } else if (mode === 'detail') {
@@ -104,17 +104,17 @@ export class ResumeDetailForm extends Component {
         ) {
           this.props.updateResumeDetailOrigin({
             id: originQuestionId,
-            value: value,
+            value: value
           });
           this.setState({
             isUpdate: false,
-            contentLength: value.content.length,
+            contentLength: value.content.length
           });
         }
 
         this.changeFormValues(
           nextProps.originQuestions,
-          nextProps.originQuestionId,
+          nextProps.originQuestionId
         );
       }
     }
@@ -127,13 +127,13 @@ export class ResumeDetailForm extends Component {
       createCacheQuestions,
       updateResumeDetailOriginRealtime,
       originQuestionId,
-      mode,
+      mode
     } = this.props;
 
     let value = {
       content: '',
       title: '',
-      hashTags: [],
+      hashTags: []
     };
 
     if (formValues) {
@@ -153,12 +153,12 @@ export class ResumeDetailForm extends Component {
     if (mode === 'create') {
       updateResumeDetailCacheRealtime({
         id: createCacheQuestions.thisId,
-        value: value,
+        value: value
       });
     } else {
       updateResumeDetailOriginRealtime({
         id: originQuestionId,
-        value: value,
+        value: value
       });
     }
   }
@@ -168,7 +168,7 @@ export class ResumeDetailForm extends Component {
     data.forEach(item => {
       if (item.content.length > 0) {
         this.setState({
-          contentLength: item.content.length,
+          contentLength: item.content.length
         });
       }
       if (item.questionId === id) {
@@ -177,12 +177,12 @@ export class ResumeDetailForm extends Component {
         if (item.hashTags.length > 0) {
           change('hashTags', item.hashTags);
           this.setState({
-            tags: item.hashTags,
+            tags: item.hashTags
           });
         } else {
           change('hashTags', []);
           this.setState({
-            tags: [],
+            tags: []
           });
         }
       }
@@ -192,7 +192,7 @@ export class ResumeDetailForm extends Component {
   @autobind
   onClickAddHashTag(e) {
     this.setState(state => ({
-      hashTagOpen: !state.hashTagOpen,
+      hashTagOpen: !state.hashTagOpen
     }));
   }
 
@@ -201,7 +201,7 @@ export class ResumeDetailForm extends Component {
     const { currentTarget } = e;
     this.setState(state => ({
       anchorEl: currentTarget,
-      open: !state.open,
+      open: !state.open
     }));
   }
 
@@ -213,7 +213,7 @@ export class ResumeDetailForm extends Component {
   @autobind
   hashTagDialogClose() {
     this.setState({
-      hashTagOpen: false,
+      hashTagOpen: false
     });
   }
 
@@ -222,7 +222,7 @@ export class ResumeDetailForm extends Component {
     const { change } = this.props;
     this.setState({
       tags: tags,
-      isUpdate: true,
+      isUpdate: true
     });
     change('hashTags', tags);
 
@@ -234,13 +234,13 @@ export class ResumeDetailForm extends Component {
   updateText(value, name) {
     if (value.length > 1000) {
       this.setState({
-        contentLengthError: [true, '글자 수가 초과되었습니다.'],
+        contentLengthError: [true, '글자 수가 초과되었습니다.']
       });
     } else {
       this.setState({
         isUpdate: true,
         contentLength: value.length,
-        contentLengthError: [false, ''],
+        contentLengthError: [false, '']
       });
     }
     this.updateResumeDetailForm({ value: value, name: name });
@@ -291,7 +291,7 @@ export class ResumeDetailForm extends Component {
               <div className={scss['answer__header--action']}>
                 <p
                   style={{
-                    color: contentLengthError[0] ? '#f1552f' : '#668298',
+                    color: contentLengthError[0] ? '#f1552f' : '#668298'
                   }}
                 >
                   {contentLengthError[0] ? contentLengthError[1] : null}
@@ -382,5 +382,5 @@ ResumeDetailForm.propTypes = {
   updateResumeDetailCacheRealtime: PropTypes.func,
   updateResumeDetailOrigin: PropTypes.func,
   updateResumeDetailOriginRealtime: PropTypes.func,
-  isUpdateModeChange: PropTypes.func,
+  isUpdateModeChange: PropTypes.func
 };

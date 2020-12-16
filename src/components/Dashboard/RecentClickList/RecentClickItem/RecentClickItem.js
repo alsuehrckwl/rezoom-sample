@@ -28,5 +28,5 @@ RecentClickItem.propTypes = {
   resumeId: PropTypes.number,
   companyName: PropTypes.string,
   jobType: PropTypes.string,
-  clickDate: PropTypes.any, // date?
+  clickDate: PropTypes.any // date?
 };

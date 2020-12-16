@@ -50,13 +50,13 @@ const initialState = {
       applicationType: 1,
       finishFlag: 1,
       passFlag: 2,
-      deadline: moment().format('YYYY-MM-DD HH'),
+      deadline: moment().format('YYYY-MM-DD HH')
     },
     detail: [],
     thisId: 1,
     prevId: 1,
-    mode: 'select',
-  },
+    mode: 'select'
+  }
 };
 
 export const getCreateQuestions = state =>
@@ -70,12 +70,12 @@ export default function reducer(state = initialState, action = {}) {
     case UPDATE_RESUME_LIST:
       return {
         ...state,
-        resumes: action.payload.resume,
+        resumes: action.payload.resume
       };
     case UPDATE_QUESTION_LIST:
       return {
         ...state,
-        questions: action.payload.questions,
+        questions: action.payload.questions
       };
     case RESPONSE_CREATE_NEW_RESUME:
       const { applicationType, finishFlag, passFlag } = resumeCreateFormData;
@@ -89,15 +89,15 @@ export default function reducer(state = initialState, action = {}) {
       infoData.jobType = action.payload.data['jobType'];
       infoData.applicationType = FilterUtils.getItem(
         applicationType,
-        action.payload.data['applicationType'],
+        action.payload.data['applicationType']
       );
       infoData.finishFlag = FilterUtils.getItem(
         finishFlag,
-        action.payload.data['finishFlag'],
+        action.payload.data['finishFlag']
       );
       infoData.passFlag = FilterUtils.getItem(
         passFlag,
-        action.payload.data['passFlag'],
+        action.payload.data['passFlag']
       );
       infoData.deadline = action.payload.data['deadline'];
 
@@ -105,8 +105,8 @@ export default function reducer(state = initialState, action = {}) {
         ...state,
         createResumeCache: {
           ...state.createResumeCache,
-          info: infoData,
-        },
+          info: infoData
+        }
       };
     case UPDATE_RESUME_DETAIL_CACHE:
       if (action.payload.data.value === undefined) {
@@ -132,12 +132,12 @@ export default function reducer(state = initialState, action = {}) {
           createResumeCache: {
             ...state.createResumeCache,
             detail: detail,
-            mode: 'select',
-          },
+            mode: 'select'
+          }
         };
       } else {
         return {
-          ...state,
+          ...state
         };
       }
     case UPDATE_RESUME_DETAIL_CACHE_REALTIME:
@@ -163,12 +163,12 @@ export default function reducer(state = initialState, action = {}) {
           createResumeCache: {
             ...state.createResumeCache,
             detail: detailOrg,
-            mode: 'select',
-          },
+            mode: 'select'
+          }
         };
       } else {
         return {
-          ...state,
+          ...state
         };
       }
     case UPDATE_RESUME_DETAIL_ORIGIN:
@@ -203,11 +203,11 @@ export default function reducer(state = initialState, action = {}) {
         return {
           ...state,
           questions: questions,
-          questionsUpdateFlag: updateFlag,
+          questionsUpdateFlag: updateFlag
         };
       } else {
         return {
-          ...state,
+          ...state
         };
       }
     case UPDATE_RESUME_DETAIL_ORIGIN_REALTIME:
@@ -243,19 +243,19 @@ export default function reducer(state = initialState, action = {}) {
         return {
           ...state,
           questions: realtimeQuestions,
-          questionsUpdateFlag: updateFlagRealtime,
+          questionsUpdateFlag: updateFlagRealtime
         };
       } else {
         return {
-          ...state,
+          ...state
         };
       }
     case DELETE_QUESTION:
       return {
         ...state,
         questions: state.questions.filter(
-          item => item.questionId !== action.payload.questionId,
-        ),
+          item => item.questionId !== action.payload.questionId
+        )
       };
     case DELETE_QUESTION_CACHE:
       return {
@@ -263,14 +263,14 @@ export default function reducer(state = initialState, action = {}) {
         createResumeCache: {
           ...state.createResumeCache,
           detail: state.createResumeCache.detail.filter(
-            item => item.questionId !== action.payload.questionId,
-          ),
-        },
+            item => item.questionId !== action.payload.questionId
+          )
+        }
       };
     case SELECT_QUESTION_ID:
       return {
         ...state,
-        selectedQuestion: action.payload.id,
+        selectedQuestion: action.payload.id
       };
     case SELECT_CREATE_CACHE_QUESTION_ID:
       return {
@@ -279,8 +279,8 @@ export default function reducer(state = initialState, action = {}) {
           ...state.createResumeCache,
           prevId: action.payload.prevId,
           thisId: action.payload.id,
-          mode: action.payload.selMode,
-        },
+          mode: action.payload.selMode
+        }
       };
     case CREATE_QUESTION:
       const newDetail = {
@@ -290,7 +290,7 @@ export default function reducer(state = initialState, action = {}) {
           state.createResumeCache.detail.length === 0
             ? 1
             : state.createResumeCache.detail.length + 1,
-        title: '',
+        title: ''
       };
       const mergeDetail = Object.assign([], state.createResumeCache.detail);
       mergeDetail.push(newDetail);
@@ -301,8 +301,8 @@ export default function reducer(state = initialState, action = {}) {
           detail: mergeDetail,
           prevId: state.createResumeCache.thisId,
           thisId: state.createResumeCache.detail.length + 1,
-          mode: 'add',
-        },
+          mode: 'add'
+        }
       };
     case CREATE_QUESTION_ORIGIN:
       let newId = state.questions.length + 1;
@@ -313,7 +313,7 @@ export default function reducer(state = initialState, action = {}) {
         hashTags: [],
         questionId: state.questions.length === 0 ? 1 : Number(newId),
         title: '',
-        type: 'new',
+        type: 'new'
       };
 
       const mergeQuestion = Object.assign([], state.questions);
@@ -321,42 +321,42 @@ export default function reducer(state = initialState, action = {}) {
       return {
         ...state,
         questions: mergeQuestion,
-        selectedQuestion: state.questions.length === 0 ? 1 : Number(newId),
+        selectedQuestion: state.questions.length === 0 ? 1 : Number(newId)
       };
     case CLEAR_QUESTION:
       return {
         ...state,
         questions: [],
-        selectedQuestion: 1,
+        selectedQuestion: 1
       };
     case EDIT_RESUME_INFO_DATA:
       const resumeInfo = state.resumes.filter(
-        item => item.resumeId === Number(action.payload.resumeId),
+        item => item.resumeId === Number(action.payload.resumeId)
       );
       return {
         ...state,
         createResumeCache: {
           ...state.createResumeCache,
-          info: resumeInfo[0],
-        },
+          info: resumeInfo[0]
+        }
       };
     case CLEAR_QUESTION_UPDATE_FLAG:
       return {
         ...state,
-        questionsUpdateFlag: false,
+        questionsUpdateFlag: false
       };
     case IS_UPDATE_MODE_CHANGE:
       return {
         ...state,
-        isUpdateMode: action.payload.isUpdate,
+        isUpdateMode: action.payload.isUpdate
       };
     case CLEAR_QUESTION_CACHE:
       return {
         ...state,
         createResumeCache: {
           ...state.createResumeCache,
-          detail: [],
-        },
+          detail: []
+        }
       };
     default:
       return state;
@@ -367,56 +367,56 @@ export default function reducer(state = initialState, action = {}) {
  * Resume
  */
 export const getResumeList = () => ({
-  type: GET_RESUME_LIST,
+  type: GET_RESUME_LIST
 });
 
 export const updateResumeList = resume => ({
   type: UPDATE_RESUME_LIST,
   payload: {
-    resume,
-  },
+    resume
+  }
 });
 
 export const createNewResume = data => ({
   type: REQUEST_CREATE_NEW_RESUME,
   payload: {
-    data,
-  },
+    data
+  }
 });
 
 export const responseCreateNewResume = data => ({
   type: RESPONSE_CREATE_NEW_RESUME,
   payload: {
-    data,
-  },
+    data
+  }
 });
 
 export const updateResumeDetailCache = data => ({
   type: UPDATE_RESUME_DETAIL_CACHE,
   payload: {
-    data,
-  },
+    data
+  }
 });
 
 export const updateResumeDetailCacheRealtime = data => ({
   type: UPDATE_RESUME_DETAIL_CACHE_REALTIME,
   payload: {
-    data,
-  },
+    data
+  }
 });
 
 export const updateResumeDetailOrigin = data => ({
   type: UPDATE_RESUME_DETAIL_ORIGIN,
   payload: {
-    data,
-  },
+    data
+  }
 });
 
 export const updateResumeDetailOriginRealtime = data => ({
   type: UPDATE_RESUME_DETAIL_ORIGIN_REALTIME,
   payload: {
-    data,
-  },
+    data
+  }
 });
 
 /*
@@ -425,22 +425,22 @@ export const updateResumeDetailOriginRealtime = data => ({
 export const getQuestions = resumeId => ({
   type: GET_QUESTION_LIST,
   payload: {
-    resumeId,
-  },
+    resumeId
+  }
 });
 
 export const updateQuestionList = questions => ({
   type: UPDATE_QUESTION_LIST,
   payload: {
-    questions,
-  },
+    questions
+  }
 });
 
 export const selectedQuestion = id => ({
   type: SELECT_QUESTION_ID,
   payload: {
-    id,
-  },
+    id
+  }
 });
 
 export const selectedCreateCacheQuestion = (prevId, id, selMode) => ({
@@ -448,79 +448,79 @@ export const selectedCreateCacheQuestion = (prevId, id, selMode) => ({
   payload: {
     prevId,
     id,
-    selMode,
-  },
+    selMode
+  }
 });
 
 export const createQuestion = () => ({
-  type: CREATE_QUESTION,
+  type: CREATE_QUESTION
 });
 
 export const createQuestionOrigin = () => ({
-  type: CREATE_QUESTION_ORIGIN,
+  type: CREATE_QUESTION_ORIGIN
 });
 
 export const deleteQuestion = questionId => ({
   type: DELETE_QUESTION,
   payload: {
-    questionId,
-  },
+    questionId
+  }
 });
 
 export const deleteQuestionCache = questionId => ({
   type: DELETE_QUESTION_CACHE,
   payload: {
-    questionId,
-  },
+    questionId
+  }
 });
 
 export const clearQuestion = () => ({
-  type: CLEAR_QUESTION,
+  type: CLEAR_QUESTION
 });
 
 export const requestCreateQuestion = resumeId => ({
   type: REQUEST_CREATE_QUESTION,
   payload: {
-    resumeId,
-  },
+    resumeId
+  }
 });
 
 export const responseCreateQuestion = () => ({
-  type: RESPONSE_CREATE_QUESTION,
+  type: RESPONSE_CREATE_QUESTION
 });
 
 export const editResumeInfoData = resumeId => ({
   type: EDIT_RESUME_INFO_DATA,
   payload: {
-    resumeId,
-  },
+    resumeId
+  }
 });
 
 export const deleteResume = resumeId => ({
   type: DELETE_RESUME,
   payload: {
-    resumeId,
-  },
+    resumeId
+  }
 });
 
 export const requestUpdateQuestion = resumeId => ({
   type: REQUEST_UPDATE_QUESTION,
   payload: {
-    resumeId,
-  },
+    resumeId
+  }
 });
 
 export const clearQuestionUpdateFlag = () => ({
-  type: CLEAR_QUESTION_UPDATE_FLAG,
+  type: CLEAR_QUESTION_UPDATE_FLAG
 });
 
 export const isUpdateModeChange = isUpdate => ({
   type: IS_UPDATE_MODE_CHANGE,
   payload: {
-    isUpdate,
-  },
+    isUpdate
+  }
 });
 
 export const clearQuestionCache = () => ({
-  type: CLEAR_QUESTION_CACHE,
+  type: CLEAR_QUESTION_CACHE
 });

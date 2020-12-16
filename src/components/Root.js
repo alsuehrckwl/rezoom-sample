@@ -15,15 +15,15 @@ import { Landing } from './Landing/Landing';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#364eda',
-    },
+      main: '#364eda'
+    }
   },
   typography: {
     fontFamily: 'Noto Sans, Roboto, Helvetica, Arial, sans-serif',
     fontWeightLight: 300,
     fontWeightRegular: 400,
-    fontWeightMedium: 500,
-  },
+    fontWeightMedium: 500
+  }
 });
 export class Root extends Component {
   constructor(props) {
@@ -58,7 +58,7 @@ export class Root extends Component {
 
 Root.propTypes = {
   store: PropTypes.object,
-  history: PropTypes.object,
+  history: PropTypes.object
 };
 
 export default Root;

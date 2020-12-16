@@ -18,7 +18,7 @@ import {
   withStyles,
   IconButton,
   MuiThemeProvider,
-  Typography,
+  Typography
 } from '@material-ui/core';
 import closeIcon from '../../../static/images/item/ic-delete-cancel.svg';
 
@@ -26,8 +26,8 @@ const styles = theme => ({
   bootstrapRoot: {
     padding: 0,
     'label + &': {
-      marginTop: theme.spacing.unit * 3,
-    },
+      marginTop: theme.spacing.unit * 3
+    }
   },
   bootstrapInput: {
     borderRadius: 20.5,
@@ -48,16 +48,16 @@ const styles = theme => ({
       'sans-serif',
       '"Apple Color Emoji"',
       '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"',
+      '"Segoe UI Symbol"'
     ].join(','),
     '&:focus': {
       borderColor: '#80bdff',
-      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)',
-    },
+      boxShadow: '0 0 0 0.2rem rgba(0,123,255,.25)'
+    }
   },
   bootstrapFormLabel: {
-    fontSize: 18,
-  },
+    fontSize: 18
+  }
 });
 
 const theme = createMuiTheme({
@@ -66,30 +66,30 @@ const theme = createMuiTheme({
       paperWidthSm: {
         width: 450,
         height: 318,
-        borderRadius: 6,
-      },
+        borderRadius: 6
+      }
     },
     MuiTypography: {
       root: {
         width: '200px !important',
         fontWeight: 'normal',
-        fontSize: 24,
+        fontSize: 24
       },
       title: {
-        width: '450px !important',
-      },
+        width: '450px !important'
+      }
     },
     MuiDialogTitle: {
       root: {
         padding: 0,
-        width: 450,
-      },
+        width: 450
+      }
     },
     MuiIconButton: {
       root: {
         marginTop: 24,
-        marginRight: 16,
-      },
+        marginRight: 16
+      }
     },
     MuiChip: {
       root: {
@@ -97,10 +97,10 @@ const theme = createMuiTheme({
         borderRadius: 20.5,
         backgroundColor: '#ffffff',
         border: 'solid 1px #ced8ea',
-        marginRight: 6,
-      },
-    },
-  },
+        marginRight: 6
+      }
+    }
+  }
 });
 
 @withStyles(styles)
@@ -110,7 +110,7 @@ export class HashTagsDialog extends Component {
     super(props);
 
     this.state = {
-      tags: [],
+      tags: []
     };
   }
 
@@ -119,7 +119,7 @@ export class HashTagsDialog extends Component {
 
     if (tags.length !== nextProps.tags.length) {
       this.setState({
-        tags: nextProps.tags,
+        tags: nextProps.tags
       });
     }
   }
@@ -134,7 +134,7 @@ export class HashTagsDialog extends Component {
         newTags.push(e.target.value);
 
         this.setState({
-          tags: newTags,
+          tags: newTags
         });
 
         e.target.value = '';
@@ -151,7 +151,7 @@ export class HashTagsDialog extends Component {
     let newTags = tags.filter(item => item !== tag);
 
     this.setState({
-      tags: newTags,
+      tags: newTags
     });
 
     this.props.updateTags(newTags);
@@ -199,8 +199,8 @@ export class HashTagsDialog extends Component {
                       disableUnderline: true,
                       classes: {
                         root: classes.bootstrapRoot,
-                        input: classes.bootstrapInput,
-                      },
+                        input: classes.bootstrapInput
+                      }
                     }}
                     autoFocus
                     onKeyPress={e => this.onKeyPress(e)}
@@ -229,7 +229,7 @@ HashTagsDialog.propTypes = {
   tags: PropTypes.array,
   classes: PropTypes.object,
   dialogClose: PropTypes.func,
-  updateTags: PropTypes.func,
+  updateTags: PropTypes.func
 };
 
 export default HashTagsDialog;

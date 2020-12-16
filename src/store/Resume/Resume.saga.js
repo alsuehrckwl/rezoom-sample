@@ -16,14 +16,14 @@ import {
   getUpdateQuestions,
   getQuestionsUpdateFlag,
   clearQuestionUpdateFlag,
-  isUpdateModeChange,
+  isUpdateModeChange
 } from './Resume.store';
 import api from '../../service';
 import {
   activeLoadingContainer,
   inactiveLoadingContainer,
   activeLoadingComponent,
-  inactiveLoadingComponent,
+  inactiveLoadingComponent
 } from '../Loader/Loader.store';
 import { FilterUtils } from '../../utils/FilterUtils';
 import { resumeCreateFormData } from '../../utils/Constans';
@@ -42,7 +42,7 @@ function* postCreateNewResume(data) {
       halfType: data.halfType,
       jobType: data.jobType,
       passFlag: data.passFlag,
-      deadline: data.deadline,
+      deadline: data.deadline
     };
     if (data.mode === 'Edit') {
       yield call(putUpdateResume, data.resumeId, resume);
@@ -54,8 +54,8 @@ function* postCreateNewResume(data) {
         yield put(
           openSnackbar({
             variant: 'success',
-            message: `${data.companyName} 자소서가 정상적으로 등록되었습니다.`,
-          }),
+            message: `${data.companyName} 자소서가 정상적으로 등록되었습니다.`
+          })
         );
       }
 
@@ -78,13 +78,13 @@ function* getResumeList() {
         if (item.applicationType.length === 1) {
           item.applicationType = FilterUtils.filterItem(
             resumeCreateFormData.applicationType,
-            String(item.applicationType),
+            String(item.applicationType)
           );
         }
 
         item.finishFlag = FilterUtils.filterItem(
           resumeCreateFormData.finishFlag,
-          item.finishFlag,
+          item.finishFlag
         );
       });
       yield put(updateResumeList(result.data));
@@ -122,7 +122,7 @@ function* postCreateQuestions(resumeId) {
 
     const body = {
       questions: originQuestions,
-      resumeId: Number(resumeId),
+      resumeId: Number(resumeId)
     };
 
     const result = yield call(api.insertQuestions, body);
@@ -135,8 +135,8 @@ function* postCreateQuestions(resumeId) {
       yield put(
         openSnackbar({
           variant: 'success',
-          message: '문항이 정상적으로 등록되었습니다.',
-        }),
+          message: '문항이 정상적으로 등록되었습니다.'
+        })
       );
     }
   } catch (error) {
@@ -147,7 +147,7 @@ function* postCreateQuestions(resumeId) {
 function* putUpdateResume(resumeId, resume) {
   try {
     const body = {
-      resume: resume,
+      resume: resume
     };
 
     const result = yield call(api.updateResume, resumeId, body);
@@ -156,8 +156,8 @@ function* putUpdateResume(resumeId, resume) {
       yield put(
         openSnackbar({
           variant: 'success',
-          message: '자소서가 정상적으로 수정되었습니다.',
-        }),
+          message: '자소서가 정상적으로 수정되었습니다.'
+        })
       );
     }
     yield put(inactiveLoadingComponent());
@@ -178,8 +178,8 @@ function* deleteOneResume(resumeId) {
       yield put(
         openSnackbar({
           variant: 'success',
-          message: '자소서가 정상적으로 삭제되었습니다.',
-        }),
+          message: '자소서가 정상적으로 삭제되었습니다.'
+        })
       );
     }
     yield put(inactiveLoadingComponent());
@@ -211,7 +211,7 @@ function* putUpdateQuestion(resumeId) {
 
     const body = {
       questions: originQuestions,
-      resumeId: Number(resumeId),
+      resumeId: Number(resumeId)
     };
 
     let result;
@@ -229,15 +229,15 @@ function* putUpdateQuestion(resumeId) {
         yield put(
           openSnackbar({
             variant: 'success',
-            message: '문항이 정상적으로 등록되었습니다.',
-          }),
+            message: '문항이 정상적으로 등록되었습니다.'
+          })
         );
       } else {
         yield put(
           openSnackbar({
             variant: 'success',
-            message: '문항이 정상적으로 수정되었습니다.',
-          }),
+            message: '문항이 정상적으로 수정되었습니다.'
+          })
         );
       }
       yield call(getQuestionsList, payload);

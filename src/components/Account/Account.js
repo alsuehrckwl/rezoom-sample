@@ -13,7 +13,7 @@ import {
   Toolbar,
   IconButton,
   CircularProgress,
-  withStyles,
+  withStyles
 } from '@material-ui/core';
 import { userSignUp } from '../../store/Auth/Auth.store';
 import scss from './Account.scss';
@@ -28,23 +28,23 @@ const theme = createMuiTheme({
   overrides: {
     MuiPaper: {
       elevation4: {
-        boxShadow: 'none',
-      },
+        boxShadow: 'none'
+      }
     },
     MuiCardContent: {
       root: {
-        padding: '0px !important',
-      },
+        padding: '0px !important'
+      }
     },
     MuiCardActions: {
       root: {
         margin: '19px 75px 25px 488px',
         padding: '0px !important',
-        height: '100px',
+        height: '100px'
       },
       action: {
-        margin: '0px',
-      },
+        margin: '0px'
+      }
     },
     MuiButton: {
       root: {
@@ -55,16 +55,16 @@ const theme = createMuiTheme({
         borderRadius: 28,
         fontSize: '14px !important',
         fontWeight: 'bold',
-        boxShadow: '0 2px 6px 0 rgba(159, 159, 159, 0.5)',
-      },
-    },
-  },
+        boxShadow: '0 2px 6px 0 rgba(159, 159, 159, 0.5)'
+      }
+    }
+  }
 });
 
 const styles = theme => ({
   wrapper: {
     margin: theme.spacing.unit,
-    position: 'relative',
+    position: 'relative'
   },
   buttonProgress: {
     color: '#364eda',
@@ -72,8 +72,8 @@ const styles = theme => ({
     top: '50%',
     left: '50%',
     marginTop: -12,
-    marginLeft: -12,
-  },
+    marginLeft: -12
+  }
 });
 @withStyles(styles)
 @reduxForm({
@@ -83,21 +83,21 @@ const styles = theme => ({
     name: '',
     username: '',
     password: '',
-    passwordCheck: '',
+    passwordCheck: ''
   },
   onSubmit: (values, dispatch) => {
     dispatch(userSignUp(values));
-  },
+  }
 })
 @connect(
   state => ({
     formValues: getFormValues('accountForm')(state),
     loading: state.loader.component,
-    duplicate: state.auth.duplicate,
+    duplicate: state.auth.duplicate
   }),
   {
-    submit: () => submit('accountForm'),
-  },
+    submit: () => submit('accountForm')
+  }
 )
 class Account extends Component {
   constructor(props) {
@@ -109,7 +109,7 @@ class Account extends Component {
       nameRequired: [false, '성명을 입력하세요.'],
       usernameRequired: [false, '이메일을 입력하세요.'],
       passwordRequired: [false, '패스워드를 입력하세요.'],
-      passwordCheckRequired: [false, '패스워드를 확인하세요.'],
+      passwordCheckRequired: [false, '패스워드를 확인하세요.']
     };
   }
 
@@ -118,7 +118,7 @@ class Account extends Component {
 
     if (duplicate[0] !== nextProps.duplicate[0]) {
       this.setState({
-        usernameRequired: nextProps.duplicate,
+        usernameRequired: nextProps.duplicate
       });
     }
   }
@@ -173,7 +173,7 @@ class Account extends Component {
       nameRequired: [nameRequired, '성명을 입력하세요.'],
       usernameRequired: [checkBool, checkEmail],
       passwordRequired: [passwordRequired, '패스워드를 입력하세요.'],
-      passwordCheckRequired: [checkPasswordBool, checkPassword],
+      passwordCheckRequired: [checkPasswordBool, checkPassword]
     });
 
     return result;
@@ -182,7 +182,7 @@ class Account extends Component {
   @autobind
   onChangeName(e, value) {
     this.setState({
-      nameRequired: [value.length === 0, '성명을 입력하세요.'],
+      nameRequired: [value.length === 0, '성명을 입력하세요.']
     });
   }
 
@@ -200,11 +200,11 @@ class Account extends Component {
         checkBool = true;
       }
       this.setState({
-        usernameRequired: [checkBool === 0, checkEmail],
+        usernameRequired: [checkBool === 0, checkEmail]
       });
     } else {
       this.setState({
-        usernameRequired: [value.length === 0, '이메일을 입력하세요.'],
+        usernameRequired: [value.length === 0, '이메일을 입력하세요.']
       });
     }
   }
@@ -213,7 +213,7 @@ class Account extends Component {
   onChangePassword(e, value) {
     this.setState({
       passwordRequired: [value.length === 0, '패스워드를 입력하세요.'],
-      password: value,
+      password: value
     });
   }
 
@@ -221,7 +221,7 @@ class Account extends Component {
   onChangePasswordCheck(e, value) {
     this.setState({
       passwordCheckRequired: [value.length === 0, '패스워드를 입력하세요.'],
-      passwordCheck: value,
+      passwordCheck: value
     });
   }
 
@@ -231,7 +231,7 @@ class Account extends Component {
       nameRequired,
       usernameRequired,
       passwordRequired,
-      passwordCheckRequired,
+      passwordCheckRequired
     } = this.state;
 
     return (
@@ -285,7 +285,7 @@ class Account extends Component {
                 <div
                   className={scss.form}
                   style={{
-                    border: usernameRequired[0] ? 'solid 1px #f1552f' : 0,
+                    border: usernameRequired[0] ? 'solid 1px #f1552f' : 0
                   }}
                 >
                   <div className={scss.label}>
@@ -306,7 +306,7 @@ class Account extends Component {
                 <div
                   className={scss.form}
                   style={{
-                    border: passwordRequired[0] ? 'solid 1px #f1552f' : 0,
+                    border: passwordRequired[0] ? 'solid 1px #f1552f' : 0
                   }}
                 >
                   <div className={scss.label}>
@@ -327,7 +327,7 @@ class Account extends Component {
                 <div
                   className={scss.form}
                   style={{
-                    border: passwordCheckRequired[0] ? 'solid 1px #f1552f' : 0,
+                    border: passwordCheckRequired[0] ? 'solid 1px #f1552f' : 0
                   }}
                 >
                   <div className={scss.label}>
@@ -381,7 +381,7 @@ Account.propTypes = {
   formValues: PropTypes.object,
   loading: PropTypes.bool,
   classes: PropTypes.object,
-  duplicate: PropTypes.array,
+  duplicate: PropTypes.array
 };
 
 export default Account;

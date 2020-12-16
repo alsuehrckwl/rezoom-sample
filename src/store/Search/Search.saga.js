@@ -4,12 +4,12 @@ import {
   SEARCH_RESUMES,
   responseSearchResumes,
   responseSearchQuestionsKeyword,
-  responseSearchQuestionsHashTag,
+  responseSearchQuestionsHashTag
 } from './Search.store';
 import { push } from 'connected-react-router';
 import {
   activeLoadingContainer,
-  inactiveLoadingContainer,
+  inactiveLoadingContainer
 } from '../Loader/Loader.store';
 import { resumeCreateFormData } from '../../utils/Constans';
 import { FilterUtils } from '../../utils/FilterUtils';
@@ -49,13 +49,13 @@ export function* getSearchResumes(data) {
           if (item.applicationType.length === 1) {
             item.applicationType = FilterUtils.filterItem(
               resumeCreateFormData.applicationType,
-              String(item.applicationType),
+              String(item.applicationType)
             );
           }
 
           item.finishFlag = FilterUtils.filterItem(
             resumeCreateFormData.finishFlag,
-            item.finishFlag,
+            item.finishFlag
           );
         });
         yield put(responseSearchResumes(result.data));

@@ -16,7 +16,7 @@ export class Landing extends Component {
       verticalAlign: false,
       sectionPaddingTop: '0px',
       sectionPaddingBottom: '0px',
-      arrowNavigation: true,
+      arrowNavigation: true
     };
 
     return (

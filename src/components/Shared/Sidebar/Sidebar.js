@@ -67,7 +67,7 @@ Sidebar.propTypes = {
   list: PropTypes.array.isRequired,
   onClickMenu: PropTypes.func,
   onClickChildren: PropTypes.func,
-  onClickButton: PropTypes.func,
+  onClickButton: PropTypes.func
 };
 
 export default Sidebar;

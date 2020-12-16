@@ -14,7 +14,7 @@ import {
   getResumeStatistics,
   getRecentClick,
   getHashtag,
-  getName,
+  getName
 } from '../../store/Dashboard/Dashboard.store';
 import { getResumeList } from '../../store/Resume/Resume.store';
 import Scrollbars from 'react-custom-scrollbars';
@@ -26,7 +26,7 @@ import Scrollbars from 'react-custom-scrollbars';
     recentClickList: state.dashboard.recentClick,
     hashtagList: state.dashboard.hashtag,
     username: state.dashboard.name,
-    resumes: state.resume.resumes,
+    resumes: state.resume.resumes
   }),
   {
     getDeadline,
@@ -34,8 +34,8 @@ import Scrollbars from 'react-custom-scrollbars';
     getRecentClick,
     getHashtag,
     getName,
-    getResumeList,
-  },
+    getResumeList
+  }
 )
 export class Dashboard extends Component {
   constructor(props) {
@@ -58,7 +58,7 @@ export class Dashboard extends Component {
       recentClickList,
       hashtagList,
       username,
-      resumes,
+      resumes
     } = this.props;
 
     return (
@@ -149,7 +149,7 @@ Dashboard.propTypes = {
   recentClickList: PropTypes.any,
   hashtagList: PropTypes.any,
   username: PropTypes.string,
-  resumes: PropTypes.array,
+  resumes: PropTypes.array
 };
 
 export default Dashboard;

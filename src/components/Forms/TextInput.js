@@ -34,7 +34,7 @@ renderInput.propTypes = {
   label: PropTypes.string,
   meta: PropTypes.object,
   type: PropTypes.string,
-  fullWidth: PropTypes.bool,
+  fullWidth: PropTypes.bool
 };
 
 export class TextInput extends Component {
@@ -60,7 +60,7 @@ TextInput.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   type: PropTypes.string,
-  fullWidth: PropTypes.bool,
+  fullWidth: PropTypes.bool
 };
 
 export default TextInput;

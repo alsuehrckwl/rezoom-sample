@@ -9,7 +9,7 @@ import { deleteResume } from '../../../store/Resume/Resume.store';
 
 @connect(state => ({}), {
   deleteResume,
-  dialogOpen,
+  dialogOpen
 })
 export class ListMenu extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ export class ListMenu extends Component {
 
     this.state = {
       anchorEl: null,
-      open: false,
+      open: false
     };
   }
 
@@ -70,7 +70,7 @@ export class ListMenu extends Component {
 ListMenu.propTypes = {
   resumeId: PropTypes.number,
   deleteResume: PropTypes.func,
-  dialogOpen: PropTypes.func,
+  dialogOpen: PropTypes.func
 };
 
 export default ListMenu;

@@ -12,31 +12,31 @@ const theme = createMuiTheme({
         width: 166,
         height: 56,
         color: '#668298',
-        border: 'solid 1px #ced8ea',
+        border: 'solid 1px #ced8ea'
       },
       selectMenu: {
         padding: '17px 20px',
-        marginLeft: '-1px',
-      },
+        marginLeft: '-1px'
+      }
     },
     MuiInput: {
       underline: {
         '&:before': {
-          borderBottom: 0,
+          borderBottom: 0
         },
         '&:after': {
-          borderBottom: 0,
+          borderBottom: 0
         },
         '&:hover:not($disabled):not($focused):not($error):before': {
-          borderBottom: 0,
-        },
-      },
+          borderBottom: 0
+        }
+      }
     },
     MuiList: {
       padding: {
         paddingTop: 0,
-        paddingBottom: 0,
-      },
+        paddingBottom: 0
+      }
     },
     MuiListItem: {
       default: {
@@ -44,38 +44,38 @@ const theme = createMuiTheme({
         borderRight: '1px solid #ced8ea',
         borderBottom: '1px solid #ced8ea',
         '&:first-child': {
-          borderTop: '1px solid #ced8ea',
-        },
+          borderTop: '1px solid #ced8ea'
+        }
       },
       button: {
         fontWeight: '500 !important',
         '&:hover': {
           backgroundColor: '#f7fafe',
-          fontWeight: 'bold !important',
-        },
-      },
+          fontWeight: 'bold !important'
+        }
+      }
     },
     MuiPaper: {
       elevation8: {
-        boxShadow: 'none',
+        boxShadow: 'none'
       },
       rounded: {
-        borderRadius: 0,
-      },
+        borderRadius: 0
+      }
     },
     MuiPopover: {
       paper: {
         top: '164px !important',
-        minWidth: '166px !important',
-      },
+        minWidth: '166px !important'
+      }
     },
     MuiMenuItem: {
       selected: {
         backgroundColor: '#dde5fc !important',
-        fontWeight: 'bold !important',
-      },
-    },
-  },
+        fontWeight: 'bold !important'
+      }
+    }
+  }
 });
 
 const renderSelect = ({
@@ -109,7 +109,7 @@ renderSelect.propTypes = {
   input: PropTypes.shape(fieldInputPropTypes).isRequired,
   label: PropTypes.string,
   meta: PropTypes.object,
-  children: PropTypes.node,
+  children: PropTypes.node
 };
 
 export class SelectForm extends Component {
@@ -142,7 +142,7 @@ SelectForm.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   items: PropTypes.array.isRequired,
-  placeholder: PropTypes.string,
+  placeholder: PropTypes.string
 };
 
 export default SelectForm;

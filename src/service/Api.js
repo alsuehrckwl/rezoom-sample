@@ -9,7 +9,7 @@ export default class Api {
   static config(headers, anyParam) {
     return {
       headers: this.headers(headers),
-      ...anyParam,
+      ...anyParam
     };
   }
 
@@ -17,7 +17,7 @@ export default class Api {
     return {
       'Access-Control-Allow-Origin': '*',
       'content-type': 'application/json',
-      ...headerParams,
+      ...headerParams
     };
   }
 
@@ -30,9 +30,9 @@ export default class Api {
         {},
         this.config(
           this.headers({
-            Authorization: `${token}`,
-          }),
-        ),
+            Authorization: `${token}`
+          })
+        )
       );
     }
 
@@ -61,8 +61,8 @@ export default class Api {
   static async postLogin(url, data) {
     const config = {
       headers: {
-        'Content-Type': 'application/json',
-      },
+        'Content-Type': 'application/json'
+      }
     };
     const apiPost = await axios
       .post(`${this.baseUrl}/${url}`, data, config)

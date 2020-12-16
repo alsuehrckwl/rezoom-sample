@@ -4,7 +4,7 @@ const Auth = {
   login: param => Api.postLogin('login', param),
   signUp: param => Api.post('users/sign-up', param),
   userInfo: () => Api.get('users'),
-  changePassword: param => Api.put('users', param),
+  changePassword: param => Api.put('users', param)
 };
 
 const Resume = {
@@ -12,14 +12,14 @@ const Resume = {
   findOne: resumeId => Api.get(`resumes/${resumeId}`),
   delete: resumeId => Api.del(`resumes/${resumeId}`),
   insert: param => Api.post('resumes', param),
-  update: (resumeId, param) => Api.put(`resumes/${resumeId}`, param),
+  update: (resumeId, param) => Api.put(`resumes/${resumeId}`, param)
 };
 
 const Question = {
   findAll: resumeId => Api.get(`questions?resumeId=${resumeId}`),
   findOne: questionId => Api.get(`questions/${questionId}`),
   insert: param => Api.post('questions', param),
-  update: param => Api.put('questions', param),
+  update: param => Api.put('questions', param)
 };
 
 const Search = {
@@ -28,7 +28,7 @@ const Search = {
   findQuestionsKeyword: keyword =>
     Api.get(`search/questions?type=keyword&keyword=${keyword}`),
   findQuestionsHashTag: hashTag =>
-    Api.get(`search/questions?type=hashTag&keyword=${hashTag}`),
+    Api.get(`search/questions?type=hashTag&keyword=${hashTag}`)
 };
 
 const Dashboard = {
@@ -36,7 +36,7 @@ const Dashboard = {
   getResumeStatistics: () => Api.get('dashboard/statistics/resume'),
   getRecentClick: () => Api.get('dashboard/recent'),
   getHashtag: () => Api.get('hashTags'),
-  getName: () => Api.get('users/name'),
+  getName: () => Api.get('users/name')
 };
 
 const api = {};

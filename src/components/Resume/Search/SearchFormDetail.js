@@ -10,7 +10,7 @@ export class SearchFormDetail extends Component {
       applicationYear,
       halfType,
       applicationType,
-      passFlag,
+      passFlag
     } = this.props;
 
     return (
@@ -55,7 +55,7 @@ SearchFormDetail.propTypes = {
   applicationYear: PropTypes.array,
   halfType: PropTypes.array,
   applicationType: PropTypes.array,
-  passFlag: PropTypes.array,
+  passFlag: PropTypes.array
 };
 
 export default SearchFormDetail;

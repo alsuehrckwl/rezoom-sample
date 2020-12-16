@@ -10,14 +10,14 @@ import {
   updateResumeStatisticsList,
   updateRecentClickList,
   updateHashtagList,
-  updateName,
+  updateName
 } from './Dashboard.store';
 import api from '../../service';
 import {
   activeLoadingContainer,
   inactiveLoadingContainer,
   activeLoadingComponent,
-  inactiveLoadingComponent,
+  inactiveLoadingComponent
 } from '../Loader/Loader.store';
 
 function* getDeadlineList() {
