@@ -91,8 +91,8 @@ const styles = {
   form: 'loginForm',
   enableReinitialize: true,
   initialValues: {
-    username: '',
-    password: ''
+    username: 'sample@rezoom.com',
+    password: '1234'
   },
   onSubmit: (values, dispatch) => {
     dispatch(login(values));

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
-import Cookies from 'js-cookie';
 
 const withAuthGuard = isLogin => WrappedComponent => {
   return class AuthGuard extends Component {
@@ -14,8 +13,9 @@ const withAuthGuard = isLogin => WrappedComponent => {
     }
 
     render() {
-      const validJwt = Cookies.get('jwt');
-      return validJwt !== undefined ? (
+      const { isLogin } = this.props;
+
+      return isLogin ? (
         <WrappedComponent {...this.props} />
       ) : (
         <Redirect push to="/login" />

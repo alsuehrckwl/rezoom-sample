@@ -35,22 +35,7 @@ export function* login(data) {
       password: data.password
     };
 
-    const result = yield call(api.login, params);
-
-    if (result.status === 400) {
-      yield put(
-        loginError(
-          '등록되지 않은 아이디거나, 아이디 혹은 비밀번호를 잘못 입력하셨습니다.'
-        )
-      );
-      yield put(
-        openSnackbar({
-          variant: 'error',
-          message: '로그인에 실패하였습니다.'
-        })
-      );
-    } else {
-      Cookies.set('jwt', result.data);
+    if (params.username === 'sample@rezoom.com' && params.password === '1234') {
       yield put(clearLoginError());
       yield put(
         openSnackbar({
@@ -60,6 +45,35 @@ export function* login(data) {
       );
       yield put(loginSuccess());
     }
+
+    yield put(inactiveLoadingComponent());
+
+    // const result = yield call(api.login, params);
+
+    // if (result.status === 400) {
+    //   yield put(
+    //     loginError(
+    //       '등록되지 않은 아이디거나, 아이디 혹은 비밀번호를 잘못 입력하셨습니다.'
+    //     )
+    //   );
+    //   yield put(
+    //     openSnackbar({
+    //       variant: 'error',
+    //       message: '로그인에 실패하였습니다.'
+    //     })
+    //   );
+    // } else {
+    //   Cookies.set('jwt', result.data);
+    //   yield put(clearLoginError());
+    //   yield put(
+    //     openSnackbar({
+    //       variant: 'success',
+    //       message: `${data.username}님 안녕하세요.`
+    //     })
+    //   );
+    //   yield put(loginSuccess());
+    // }
+
     yield put(inactiveLoadingComponent());
   } catch (e) {
     throw e;

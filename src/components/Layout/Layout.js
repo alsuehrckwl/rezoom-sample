@@ -8,8 +8,6 @@ import withAuthGuard from '../../hocs/withAuthGuard';
 import scss from './Layout.scss';
 import { Files } from '../File/Files';
 import { ResumeDetail, Resumes } from '../Resume';
-import { Create } from '../Dialog/Create/Create';
-import autobind from 'autobind-decorator';
 import { Dialog } from '../Dialog/Dialog';
 import { SearchForm } from '../Resume/Search/SearchForm';
 import { Search } from '../Resume/Search/Search';
@@ -26,7 +24,7 @@ import { Dashboard } from '../Dashboard/Dashboard';
 @withAuthGuard()
 export class Layout extends Component {
   render() {
-    const { isLogin, match, location } = this.props;
+    const { match, location } = this.props;
     return (
       <div className={scss['rezoom__container']}>
         <Header />

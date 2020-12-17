@@ -71,24 +71,27 @@ function* postCreateNewResume(data) {
 function* getResumeList() {
   try {
     yield put(activeLoadingContainer());
-    const result = yield call(api.getResumes);
+    // const result = yield call(api.getResumes);
 
-    if (result) {
-      result.data.forEach(item => {
-        if (item.applicationType.length === 1) {
-          item.applicationType = FilterUtils.filterItem(
-            resumeCreateFormData.applicationType,
-            String(item.applicationType)
-          );
-        }
+    // if (result) {
+    //   result.data.forEach(item => {
+    //     if (item.applicationType.length === 1) {
+    //       item.applicationType = FilterUtils.filterItem(
+    //         resumeCreateFormData.applicationType,
+    //         String(item.applicationType)
+    //       );
+    //     }
 
-        item.finishFlag = FilterUtils.filterItem(
-          resumeCreateFormData.finishFlag,
-          item.finishFlag
-        );
-      });
-      yield put(updateResumeList(result.data));
-    }
+    //     item.finishFlag = FilterUtils.filterItem(
+    //       resumeCreateFormData.finishFlag,
+    //       item.finishFlag
+    //     );
+    //   });
+    //   yield put(updateResumeList(result.data));
+    // }
+
+    yield put(updateResumeList([]));
+
     yield put(inactiveLoadingContainer());
   } catch (error) {
     throw error;
